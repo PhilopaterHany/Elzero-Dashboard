@@ -1,0 +1,217 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+@use "../components/header";
+@use "../components/sidebar";
+
+.settings-wrapper {
+    @include wrapper(500px, 100px);
+    .box {
+        .box-header {
+            h2 {
+                margin-bottom: 0;
+            }
+        }
+        &.control {
+            .heading-setting {
+                @include flexbox("space-between", "center");
+            }
+            textarea {
+                margin-top: 25px;
+                resize: none;
+                min-height: 150px;
+                @extend %basic-input;
+            }
+        }
+        &.general-info {
+            > div:not(.box-header) {
+                &:not(:last-of-type) {
+                    margin-bottom: 15px;
+                }
+                &:last-of-type {
+                    input {
+                        width: calc(100% - 85px);
+                        margin-right: 10px;
+                    }
+                }
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-size: 14px;
+                    color: $dark-grey-color;
+                }
+                input {
+                    @extend %basic-input;
+                    &.disabled {
+                        display: inline-flex;
+                        cursor: no-drop;
+                        color: #bbb;
+                        background-color: #f0f4f8;
+                    }
+                }
+                button {
+                    width: 75px;
+                    padding: 10px;
+                    @include bRad(6px);
+                    color: $white-color;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                    &#change-email {
+                        background-color: $blue-alt-color;
+                    }
+                    &#save-email {
+                        display: none;
+                        background-color: $green-color;
+                    }
+                }
+            }
+        }
+        &.security {
+            ul {
+                li {
+                    padding-block: 20px;
+                    @include notLastBorderPadding(1px, $light-grey-color, 0);
+                    @include flexbox("space-between", "center");
+                    a,
+                    button {
+                        min-width: 78px;
+                        text-align: center;
+                    }
+                    button {
+                        @include button($blue-alt-color);
+                    }
+                    a {
+                        @include button($orange-color);
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        &.social-media {
+            ul {
+                @include flexbox("center", "", "column", "", "15px");
+                li {
+                    @include flexbox("", "center");
+                    &:last-of-type {
+                        justify-content: flex-end;
+                    }
+                    &:focus-within {
+                        i {
+                            @each $class, $colour in $social-colors {
+                                &.#{$class} {
+                                    color: $white-color;
+                                    border-color: $colour;
+                                    background-color: $colour;
+                                    + input {
+                                        caret-color: $colour;
+                                        border-color: $colour;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    i {
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid #ddd;
+                        border-right: none;
+                        background-color: #f6f6f6;
+                        color: $dark-grey-color;
+                        @include bRad(6px 0 0 6px);
+                        @include flexbox("center", "center");
+                        display: inline-flex;
+                        @include transDur($duration, "ease-in-out");
+                    }
+                    input {
+                        flex: 1;
+                        height: 40px;
+                        padding-left: 10px;
+                        border: 1px solid #ddd;
+                        background-color: #f6f6f6;
+                        @include bRad(0 6px 6px 0);
+                    }
+                    button {
+                        @include button($orange-color);
+                    }
+                }
+            }
+        }
+        &.widgets,
+        &.backup {
+            ul {
+                @include flexbox("center", "", "column", "", "15px");
+                margin-bottom: 20px;
+            }
+        }
+        &.backup {
+            .servers {
+                padding-top: 20px;
+                border-top: 1px solid $light-grey-color;
+                text-align: center;
+                @include flexbox("", "center", "", "", "5px");
+                @include mobileColumn(false);
+                > input {
+                    appearance: none;
+                    &:checked {
+                        + .server {
+                            label {
+                                border-color: $blue-color;
+                                color: $blue-color;
+                                i {
+                                    color: $blue-color;
+                                }
+                            }
+                        }
+                    }
+                }
+                .server {
+                    width: 100%;
+                    cursor: pointer;
+                    @include transDur($duration, "ease-in-out");
+                    label {
+                        display: block;
+                        padding: 15px;
+                        cursor: pointer;
+                        border: 2px solid $light-grey-color;
+                        @include bRad(6px);
+                        @include transDur($duration, "ease-in-out");
+                        i {
+                            display: block;
+                            margin-bottom: 10px;
+                            @include transDur($duration, "ease-in-out");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    .settings-wrapper {
+        .box {
+            input,
+            textarea {
+                background-color: $dark-mode-grey !important;
+                color: $dark-mode-white;
+            }
+            &.general-info {
+                input {
+                    &.disabled {
+                        color: $dark-grey-color;
+                    }
+                }
+            }
+            &.social-media {
+                ul {
+                    li {
+                        i {
+                            background-color: $dark-mode-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

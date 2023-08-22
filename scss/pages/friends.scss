@@ -1,0 +1,137 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+@use "../components/header";
+@use "../components/sidebar";
+
+#friends-container {
+    @include wrapper(300px, 200px);
+    .friend {
+        position: relative;
+        .contact {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            a {
+                width: 33px;
+                height: 33px;
+                padding: 10px;
+                margin-inline: 2.5px;
+                background-color: $light-grey-color;
+                color: $dark-grey-color;
+                @include bRad(50%);
+                @include transDur($duration, "ease-in-out");
+                @include flexbox("center", "center");
+                display: inline-flex;
+                &:hover {
+                    background-color: $blue-alt-color;
+                    color: $white-color;
+                }
+                i {
+                    font-size: 14px;
+                }
+            }
+        }
+        .main-info {
+            @include flexbox("center", "center", "column", "", "10px");
+            img {
+                @include circleImage(100px);
+            }
+            p {
+                margin-top: -5px;
+                color: $dark-grey-color;
+                font-size: 13px;
+            }
+        }
+        .data {
+            margin-block: 15px;
+            padding-block: 15px;
+            border-top: 1px solid $light-grey-color;
+            border-bottom: 1px solid $light-grey-color;
+            position: relative;
+            ul {
+                list-style: disc;
+                padding-left: 15px;
+                @include flexbox("center", "flex-start", "column", "", "10px");
+                li {
+                    padding-inline-start: 5px;
+                    font-size: 14px;
+                    &::marker {
+                        font: var(--fa-font-solid);
+                        position: relative;
+                        top: 1px;
+                    }
+                    &:nth-child(1)::marker {
+                        content: "\f500";
+                    }
+                    &:nth-child(2)::marker {
+                        content: "\f386";
+                    }
+                    &:nth-child(3)::marker {
+                        content: "\f1ea";
+                    }
+                }
+            }
+            span.vip {
+                position: absolute;
+                right: 0px;
+                top: 50%;
+                color: $orange-color;
+                font-size: 40px;
+                font-weight: bold;
+                text-transform: uppercase;
+                opacity: 0.25;
+                @include transform(translateY(-50%));
+            }
+        }
+        .date-btns {
+            @include flexbox("space-between", "center");
+            @media (max-width: 390px) {
+                flex-direction: column;
+                gap: 20px;
+            }
+            font-size: 13px;
+            > span {
+                color: $dark-grey-color;
+            }
+            div {
+                @include flexbox("center", "center", "", "", "5px");
+                @media (max-width: 390px) {
+                    width: 100%;
+                    @include flexbox("space-between", "center");
+                }
+                a {
+                    @include button($blue-color);
+                    font-size: 12px;
+                    &:nth-child(2) {
+                        background-color: $red-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    #friends-container {
+        .friend {
+            .contact {
+                a {
+                    background-color: $dark-mode-grey;
+                    color: $dark-grey-color;
+                    &:hover {
+                        background-color: $blue-alt-color;
+                        color: $white-color;
+                    }
+                    i {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .data {
+                border-color: $dark-grey-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,206 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+.page {
+    display: flex;
+    min-height: 100vh;
+    background-color: $light-mode-background;
+    .content {
+        width: 100%;
+        header {
+            position: relative;
+            @include flexbox("space-between", "center");
+            padding: 15px;
+            background-color: $white-color;
+            box-shadow: 0 0 10px $grey-color;
+            @media (max-width: $mobile-view) {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 2;
+            }
+            > i {
+                cursor: pointer;
+                @media (min-width: #{$mobile-view + 1}) {
+                    display: none;
+                }
+            }
+            .search {
+                position: relative;
+                &::before {
+                    content: "\f002";
+                    position: absolute;
+                    top: 50%;
+                    left: 15px;
+                    font: var(--fa-font-solid);
+                    font-size: 14px;
+                    color: $dark-grey-color;
+                    @include transform(translateY(-50%));
+                    @include transDur($duration, "ease-in-out");
+                }
+                &:focus-within {
+                    &::before {
+                        color: $blue-color;
+                        @include transform(translateY(-50%) rotate(360deg));
+                    }
+                }
+                input {
+                    width: 150px;
+                    margin-left: 5px;
+                    padding: 10px;
+                    padding-left: 30px;
+                    border: 2px solid $grey-color;
+                    background-color: transparent;
+                    caret-color: $blue-color;
+                    @include bRad(10px);
+                    @include transDur($duration, "ease-in-out");
+                    &:focus {
+                        width: 220px;
+                        border-color: $blue-color;
+                    }
+                }
+            }
+            .icons {
+                @include flexbox("center", "center", "", "", "10px");
+                span {
+                    position: relative;
+                    cursor: pointer;
+                    width: 32px;
+                    height: 32px;
+                    padding: 5px;
+                    font-size: 14px;
+                    background-color: $grey-color;
+                    @include flexbox("center", "center");
+                    @include bRad(50%);
+                    &::before {
+                        @extend %red-color-circle;
+                    }
+                }
+                a {
+                    @include flexbox("", "center");
+                    img {
+                        width: 32px;
+                        height: 32px;
+                        user-select: none;
+                        -webkit-user-drag: none;
+                    }
+                }
+            }
+            #notif-list {
+                display: none;
+                position: absolute;
+                top: 62px;
+                right: 54px;
+                width: 340px;
+                height: 460px;
+                z-index: 99;
+                overflow-y: auto;
+                @include bRad(10px);
+                background-color: $light-grey-color;
+                box-shadow: 0 0 10px $grey-color;
+                &.show {
+                    display: block;
+                }
+                @media (max-width: $mobile-view) {
+                    width: 285px;
+                }
+                h4 {
+                    width: 100%;
+                    position: relative;
+                    padding-block: 10px 5px;
+                    text-align: center;
+                    background-color: $grey-color;
+                    border-bottom: 1px solid $dark-grey-color;
+                    &::before {
+                        @extend %red-color-circle;
+                        width: 8px;
+                        height: 8px;
+                        left: 68%;
+                        top: 10px;
+                    }
+                    @media (max-width: $mobile-view) {
+                        &::before {
+                            width: 8px;
+                            height: 8px;
+                            left: 71%;
+                        }
+                    }
+                }
+                li {
+                    width: 100%;
+                    padding-block: 10px;
+                    @include flexbox("space-between", "center");
+                    @include notLastBorderPadding(1px, $dark-grey-color, 10px);
+                    @include transDur($duration, "ease-in-out");
+                    &:hover {
+                        background-color: $grey-color;
+                        border-color: $blue-color;
+                    }
+                    a {
+                        display: block;
+                        color: $black-color;
+                        @include flexbox("", "center", "", "", "5px");
+                        img {
+                            @include circleImage(40px);
+                            margin-inline-start: 5px;
+                        }
+                        div {
+                            flex: 1;
+                            span {
+                                display: block;
+                                font-size: 14px;
+                                &:last-of-type {
+                                    color: $dark-grey-color;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    .page {
+        background-color: $dark-mode-background;
+        header {
+            background-color: $dark-mode-black;
+            .search {
+                input {
+                    color: $dark-mode-white;
+                    border-color: $dark-grey-color;
+                }
+                &:focus-within {
+                    input {
+                        border-color: $blue-color !important;
+                    }
+                }
+            }
+            .icons {
+                span {
+                    background-color: $dark-mode-grey;
+                    color: $dark-mode-white;
+                }
+            }
+            #notif-list {
+                background-color: $dark-mode-black;
+                color: $dark-mode-white;
+                h4 {
+                    background-color: $dark-mode-grey;
+                }
+                li {
+                    &:hover {
+                        background-color: $dark-mode-grey;
+                    }
+                    a {
+                        color: $dark-mode-white !important;
+                    }
+                }
+            }
+        }
+    }
+}

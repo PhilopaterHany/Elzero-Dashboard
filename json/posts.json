@@ -1,0 +1,42 @@
+[
+    {
+        "image": "../../images/team-01.png",
+        "name": "Arthur Morgan",
+        "time": "3 Hours Ago",
+        "content": "I wish things were different, but it weren't us who changed.",
+        "likes": "128.4k",
+        "comments": "86.2k"
+    },
+    {
+        "image": "../../images/team-03.png",
+        "name": "John Marston",
+        "time": "11 Hours Ago",
+        "content": "We all need friends. We die alone, but we live along men.",
+        "likes": "95.6k",
+        "comments": "56.1k"
+    },
+    {
+        "image": "../../images/team-05.png",
+        "name": "Sister Calderón",
+        "time": "5 Days Ago",
+        "content": "Take a gamble that love exists, and do a loving act.",
+        "likes": "186.4k",
+        "comments": "92.5k"
+    },
+    {
+        "image": "../../images/team-02.png",
+        "name": "Abigail Roberts",
+        "time": "A Week Ago",
+        "content": "Take a gamble that love exists, and do a loving act.",
+        "likes": "63.8k",
+        "comments": "57.4k"
+    },
+    {
+        "image": "../../images/team-04.png",
+        "name": "Alicent Hightower",
+        "time": "2 Months Ago",
+        "content": "The rats play when the cat is gone.",
+        "likes": "49.2k",
+        "comments": "36.7k"
+    }
+]

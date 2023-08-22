@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Elzero Dashboard",
+        "description": "Elzero Dashboard Project Design And Programming And Hosting.",
+        "startDate": "15/10/2022",
+        "team": [
+            "../../images/team-01.png",
+            "../../images/team-02.png",
+            "../../images/team-03.png",
+            "../../images/team-04.png",
+            "../../images/team-05.png"
+        ],
+        "keywords": ["Programming", "Design", "Hosting", "Marketing"],
+        "progress": "58",
+        "funds": "2500"
+    },
+    {
+        "name": "Academy Portal",
+        "description": "Academy Portal Project Design And Programming.",
+        "startDate": "11/06/2022",
+        "team": [
+            "../../images/team-01.png",
+            "../../images/team-02.png",
+            "../../images/team-03.png"
+        ],
+        "keywords": ["Programming", "Design"],
+        "progress": "77",
+        "funds": "1800"
+    },
+    {
+        "name": "Chatting Application",
+        "description": "Chatting Application Project Design.",
+        "startDate": "26/04/2021",
+        "team": [
+            "../../images/team-01.png",
+            "../../images/team-02.png",
+            "../../images/team-05.png"
+        ],
+        "keywords": ["Design"],
+        "progress": "64",
+        "funds": "950"
+    },
+    {
+        "name": "Ahmed Dashboard",
+        "description": "Ahmed Dashboard Project Design And Programming And Hosting.",
+        "startDate": "05/03/2023",
+        "team": ["../../images/team-04.png", "../../images/team-05.png"],
+        "keywords": ["Programming", "Design", "Hosting", "Marketing"],
+        "progress": "42",
+        "funds": "1400"
+    },
+    {
+        "name": "Mohamed Application",
+        "description": "Mohamed Application Project Design.",
+        "startDate": "31/07/2023",
+        "team": [
+            "../../images/team-02.png",
+            "../../images/team-03.png",
+            "../../images/team-05.png"
+        ],
+        "keywords": ["Design", "Marketing"],
+        "progress": "14",
+        "funds": "850"
+    },
+    {
+        "name": "Ashraf Dashboard",
+        "description": "Ashraf Dashboard Project Design And Programming And Hosting.",
+        "startDate": "07/12/2022",
+        "team": ["../../images/team-02.png", "../../images/team-05.png"],
+        "keywords": ["Programming", "Design", "Hosting", "Marketing"],
+        "progress": "83",
+        "funds": "700"
+    },
+    {
+        "name": "Mohamed Portal",
+        "description": "Mohamed Portal Project Design And Programming.",
+        "startDate": "24/12/2022",
+        "team": ["../../images/team-01.png", "../../images/team-05.png"],
+        "keywords": ["Programming", "Design"],
+        "progress": "78",
+        "funds": "1500"
+    },
+    {
+        "name": "Edge Dashboard",
+        "description": "Edge Dashboard Project Design And Programming And Hosting.",
+        "startDate": "11/06/2023",
+        "team": [
+            "../../images/team-01.png",
+            "../../images/team-02.png",
+            "../../images/team-03.png",
+            "../../images/team-04.png",
+            "../../images/team-05.png"
+        ],
+        "keywords": ["Programming", "Hosting"],
+        "progress": "32",
+        "funds": "2250"
+    },
+    {
+        "name": "Philo Dashboard",
+        "description": "Philo Dashboard Project Design And Programming And Hosting.",
+        "startDate": "04/08/2023",
+        "team": ["../../images/team-05.png"],
+        "keywords": ["Programming", "Design", "Marketing"],
+        "progress": "100",
+        "funds": "3400"
+    }
+]

@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+    head
+        include ../helpers/_variables.pug
+        - var pageName = "Statistics";
+        include ../includes/_head.pug
+    body
+        include ../helpers/_mixins.pug
+
+        section.page
+            include ../components/_sidebar.pug
+            .content
+                include ../components/_header.pug
+                +page-heading("Statistics")
+                .charts-container
+                    .box.doughnut-chart
+                        h4 Doughnut Chart
+                        div
+                            canvas.doughnut-chart#doughnut
+                    .box.pie-chart
+                        h4 Pie Chart
+                        div
+                            canvas.pie-chart#pie
+                    .box.polar-area-chart
+                        h4 Polar Area
+                        div
+                            canvas.polar-chart#polar
+                    .box.bar-chart
+                        h4 Bar Chart
+                        div
+                            canvas.bar-chart#bar
+                    .box.bubble-chart
+                        h4 Bubble Chart
+                        div
+                            canvas.bubble-chart#bubble
+                    .box.line-chart
+                        h4 Line Chart
+                        div
+                            canvas.line-chart#line
+                    .box.radar-chart
+                        h4 Radar Chart
+                        div
+                            canvas.radar-chart#radar
+                    .box.mixed-chart
+                        h4 Mixed Chart
+                        div
+                            canvas.mixed-chart#mixed
+        .sidebar-overlay
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js")
+        include ../includes/_scripts.pug

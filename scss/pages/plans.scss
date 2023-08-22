@@ -1,0 +1,84 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+@use "../components/header";
+@use "../components/sidebar";
+
+.plans-container {
+    @include wrapper(450px, 250px);
+    .plan {
+        @each $class, $colour in $plans-list {
+            &.#{$class} {
+                > div {
+                    background-color: $colour;
+                    outline: 3px solid $colour;
+                }
+                > a {
+                    @include button($colour);
+                }
+                > p {
+                    color: $colour;
+                }
+            }
+        }
+        > div {
+            padding: 20px;
+            text-align: center;
+            color: $white-color;
+            border: 3px solid $white-color;
+            span {
+                font-size: 40px;
+                position: relative;
+                &::before {
+                    content: "\24";
+                    position: absolute;
+                    top: -3px;
+                    left: -13px;
+                    font-size: 20px;
+                }
+            }
+        }
+        > ul {
+            margin-block: 20px;
+            li {
+                padding-block: 15px;
+                @include flexbox("center", "center");
+                border-bottom: 1px solid $light-grey-color;
+                i {
+                    @each $class, $colour in $icons-list {
+                        &.#{$class} {
+                            color: $colour;
+                            @if $class == "help" {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                span {
+                    flex: 1;
+                    padding-left: 10px;
+                }
+            }
+        }
+        > p {
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    .plans-container {
+        .plan {
+            > div {
+                border-color: $dark-mode-black;
+            }
+            ul {
+                li {
+                    border-color: $dark-grey-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,209 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+@use "../components/header";
+@use "../components/sidebar";
+
+.overview {
+    background-color: $white-color;
+    margin: 20px;
+    overflow: hidden;
+    @include bRad(10px);
+    @include flexbox();
+    @include mobileColumn(false);
+    .person {
+        padding: 20px;
+        @include flexbox("center", "center", "column", "", "15px");
+        @media (min-width: #{$mobile-view + 1}) {
+            width: 300px;
+            border-right: 1px solid $light-grey-color;
+        }
+        @media (max-width: $mobile-view) {
+            border-bottom: 1px solid $light-grey-color;
+        }
+        #avatar {
+            width: 120px;
+            height: 120px;
+        }
+        #level {
+            display: inline-block;
+            margin-top: -10px;
+            font-size: 14px;
+            color: $dark-grey-color;
+        }
+        .progress {
+            width: 70%;
+            height: 6px;
+            position: relative;
+            @include bRad(6px);
+            overflow: hidden;
+            background-color: $light-grey-color;
+            span {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                background-color: $blue-color;
+            }
+        }
+        .stars {
+            @include flexbox("", "", "", "", "5px");
+            i {
+                color: $orange-color;
+                font-size: 13px;
+            }
+        }
+        #rating {
+            @extend #level;
+        }
+    }
+    .personal-details {
+        width: 100%;
+        .box {
+            padding: 20px;
+            @include flexbox("", "center", "", "wrap", "10px");
+            @include transDur($duration, "ease-in-out");
+            @include notLastBorderPadding(1px, $light-grey-color, 20px);
+            &:hover {
+                background-color: $light-grey-color;
+            }
+            @media (max-width: $mobile-view) {
+                padding: 20px 10px;
+                @include flexbox("center", "center", "column", "", "10px");
+            }
+            h4 {
+                width: 100%;
+                color: $dark-grey-color;
+                font-size: 15px;
+                @media (max-width: $mobile-view) {
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+            }
+            > div {
+                min-width: 250px;
+                font-size: 14px;
+                &:last-of-type {
+                    margin-top: 10px;
+                }
+                @media (max-width: $mobile-view) {
+                    min-width: unset;
+                }
+                label.switch {
+                    .toggle-checkbox {
+                        &:checked {
+                            + .toggle-switch {
+                                &::before {
+                                    left: calc(100% - 16px);
+                                }
+                            }
+                        }
+                    }
+                    .toggle-switch {
+                        height: 20px;
+                        &::before {
+                            width: 12px;
+                            height: 12px;
+                            font-size: 8px;
+                            align-items: flex-end;
+                        }
+                    }
+                }
+                span:first-of-type {
+                    color: $dark-grey-color;
+                }
+            }
+        }
+    }
+}
+.data-wrapper {
+    margin: 20px;
+    @include flexbox("", "", "", "", "20px");
+    @include mobileColumn(true);
+    > div {
+        @include bRad(10px);
+        padding: 20px;
+        background-color: $white-color;
+        @media (max-width: $mobile-view) {
+            padding: 15px;
+        }
+        .box-header {
+            h2 {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .skills {
+        flex-grow: 1;
+        ul {
+            li {
+                @include flexbox("", "", "", "wrap", "10px");
+                @media (max-width: $mobile-view) {
+                    justify-content: center;
+                }
+                padding-block: 15px;
+                @include notLastBorderPadding(1px, $light-grey-color, 0);
+                span {
+                    padding: 5px 10px;
+                    font-size: 13px;
+                    @include bRad(6px);
+                    background-color: $light-grey-color;
+                }
+            }
+        }
+    }
+    .activities {
+        flex-grow: 2;
+        ul {
+            li {
+                padding-block: 20px;
+                @include flexbox("center", "center", "", "", "10px");
+                @include mobileColumn(true);
+                @include notLastBorderPadding(1px, $light-grey-color, 0);
+                img {
+                    width: 64px;
+                    height: 64px;
+                }
+                div {
+                    padding-block: 5px;
+                    &:first-of-type {
+                        flex: 1;
+                    }
+                    &:last-of-type {
+                        text-align: right;
+                        @media (max-width: $mobile-view) {
+                            text-align: center;
+                        }
+                    }
+                    span {
+                        display: block;
+                        margin-top: 5px;
+                        font-size: 14px;
+                        color: $dark-grey-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    .box,
+    .person {
+        border-color: $dark-grey-color !important;
+    }
+    .overview {
+        background-color: $dark-mode-black;
+        color: $dark-mode-white;
+    }
+    .skills {
+        ul {
+            li {
+                span {
+                    background-color: $dark-mode-grey;
+                }
+            }
+        }
+    }
+}

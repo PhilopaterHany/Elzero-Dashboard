@@ -1,0 +1,120 @@
+doctype html
+html(lang="en")
+    head
+        include ../helpers/_variables.pug
+        - var pageName = "Profile";
+        include ../includes/_head.pug
+    body
+        include ../helpers/_mixins.pug
+        section.page
+            include ../components/_sidebar.pug
+            .content
+                include ../components/_header.pug
+                +page-heading("Profile")
+                .overview
+                    .person(data-aos="fade-up-right")
+                        img#avatar(src="", alt="")
+                        h3#nickname
+                        span#level
+                        .progress
+                            span#xp-progress
+                        .stars
+                            - for (var i = 0; i < 5; ++i) {
+                                i.fa-solid.fa-star
+                            - }
+                        span#rating
+                    .personal-details
+                        .box(data-aos="fade-down-left")
+                            h4 General Information
+                            div
+                                span Full Name: 
+                                span#full-name
+                            div
+                                span Gender: 
+                                span#gender
+                            div
+                                span Country: 
+                                span#country
+                            div
+                                +switch-toggle(true)
+                        .box(data-aos="fade-down-left")
+                            h4 Personal Information
+                            div
+                                span Email: 
+                                span#user-email
+                            div
+                                span Phone: 
+                                span#phone
+                            div
+                                span Date Of Birth: 
+                                span#birthdate
+                            div
+                                +switch-toggle(false)
+                        .box(data-aos="fade-down-left")
+                            h4 Job Information
+                            div
+                                span Title: 
+                                span#user-job-title
+                            div
+                                span Programming Language: 
+                                span#prog-lang
+                            div
+                                span Years Of Experience: 
+                                span#experience
+                            div
+                                +switch-toggle(true)
+                        .box(data-aos="fade-down-left")
+                            h4 Billing Information
+                            div
+                                span Payment Method: 
+                                span#payment-method
+                            div
+                                span Plan: 
+                                span#plan
+                            div
+                                span Subscription: 
+                                span#subscription
+                            div
+                                +switch-toggle(false)
+                .data-wrapper
+                    .box.skills(data-aos="zoom-in-right")
+                        +box-header("fa-solid fa-screwdriver-wrench", "My Skills", "Complete skills list")
+                        ul.skills-wrapper
+                    .box.activities(data-aos="zoom-in-left")
+                        +box-header("fa-solid fa-tower-observation", "Latest Activities", "Latest activities done by the user")
+                        ul
+                            li
+                                img(src="images/activity-01.png", alt="")
+                                div
+                                    p Store
+                                    span Bought "Mastering Python" course
+                                div
+                                    p 18:10
+                                    span Just now
+                            li
+                                img(src="images/activity-02.png", alt="")
+                                div
+                                    p Academy
+                                    span Got PHP certificate
+                                div
+                                    p 17:05
+                                    span 3 days ago
+                            li
+                                img(src="images/activity-03.png", alt="")
+                                div
+                                    p Badges
+                                    span Unlocked "10 Skills" badge
+                                div
+                                    p 13:42
+                                    span A week ago
+                            li
+                                img(src="images/activity-01.png", alt="")
+                                div
+                                    p Store
+                                    span Bought "Typescript" course
+                                div
+                                    p 11:38
+                                    span 2 months ago
+        .sidebar-overlay
+
+        include ../includes/_scripts.pug

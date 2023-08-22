@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    head
+        include ../helpers/_variables.pug
+        - var pageName = "Friends";
+        include ../includes/_head.pug
+    body
+        include ../helpers/_mixins.pug
+
+        section.page
+            include ../components/_sidebar.pug
+            .content
+                include ../components/_header.pug
+                +page-heading("Friends")
+                #friends-container
+        .sidebar-overlay
+
+        include ../includes/_scripts.pug

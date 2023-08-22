@@ -1,0 +1,88 @@
+@use "../helpers/variables" as *;
+
+@mixin flexbox($jc: "", $ai: "", $dir: "", $wrap: "", $gap: "") {
+    display: flex;
+    justify-content: unquote($jc);
+    align-items: unquote($ai);
+    flex-direction: unquote($dir);
+    flex-wrap: unquote($wrap);
+    gap: unquote($gap);
+}
+@mixin bRad($r) {
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    -ms-border-radius: $r;
+    -o-border-radius: $r;
+    border-radius: $r;
+}
+@mixin transform($transfromList) {
+    -webkit-transform: $transfromList;
+    -moz-transform: $transfromList;
+    -ms-transform: $transfromList;
+    -o-transform: $transfromList;
+    transform: $transfromList;
+}
+@mixin transDur($s, $timing: "") {
+    -webkit-transition: $s unquote($timing);
+    -moz-transition: $s unquote($timing);
+    -ms-transition: $s unquote($timing);
+    -o-transition: $s unquote($timing);
+    transition: $s unquote($timing);
+}
+@mixin wrapper($desktop, $mobile) {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($desktop, 1fr));
+    gap: 20px;
+    margin: 0 20px 20px;
+    @media (max-width: $mobile-view) {
+        grid-template-columns: minmax($mobile, 1fr);
+        margin: 0 10px 20px;
+    }
+    > div {
+        @include bRad(10px);
+        padding: 20px;
+        background-color: $white-color;
+        box-shadow: 0 0 10px rgba($color: $grey-color, $alpha: 0.7);
+        @media (max-width: $mobile-view) {
+            padding: 15px;
+        }
+    }
+}
+@mixin circleImage($dimensions) {
+    width: $dimensions;
+    height: $dimensions;
+    @include bRad(50%);
+    border: 2px solid $white-color;
+    box-shadow: 0 0 5px #ddd;
+}
+@mixin button($color) {
+    padding: 5px 10px;
+    background-color: $color;
+    color: $white-color;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @include bRad(6px);
+    @include transDur($duration, "ease-in-out");
+    &:hover {
+        -webkit-filter: brightness(95%);
+        filter: brightness(95%);
+    }
+}
+@mixin mobileColumn($center) {
+    @media (max-width: $mobile-view) {
+        flex-direction: column;
+        @if $center {
+            text-align: center;
+        }
+    }
+}
+@mixin notLastBorderPadding($width, $color, $padding) {
+    &:not(:last-of-type) {
+        border-bottom: $width solid $color;
+    }
+    &:last-of-type {
+        padding-bottom: $padding;
+    }
+}

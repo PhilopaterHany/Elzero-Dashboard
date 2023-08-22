@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Arthur Morgan",
+        "job": "JavaScript Developer",
+        "image": "../../images/friend-01.jpg",
+        "friends": "342",
+        "projects": "74",
+        "articles": "821",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "11/04/2020",
+        "vip": true
+    },
+    {
+        "name": "John Marston",
+        "job": "Cloud Developer",
+        "image": "../../images/friend-02.jpg",
+        "friends": "198",
+        "projects": "57",
+        "articles": "124",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "04/08/2023",
+        "vip": true
+    },
+    {
+        "name": "Sadie Adler",
+        "job": "Mobile Developer",
+        "image": "../../images/friend-03.jpg",
+        "friends": "71",
+        "projects": "48",
+        "articles": "23",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "21/08/2019",
+        "vip": false
+    },
+    {
+        "name": "Rachel Jones",
+        "job": "PHP Developer",
+        "image": "../../images/friend-04.jpg",
+        "friends": "182",
+        "projects": "203",
+        "articles": "64",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "25/07/2020",
+        "vip": false
+    },
+    {
+        "name": "Saul Goodman",
+        "job": "Lead Attorney",
+        "image": "../../images/friend-05.jpg",
+        "friends": "802",
+        "projects": "761",
+        "articles": "2439",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "02/08/2021",
+        "vip": true
+    },
+    {
+        "name": "Walter White",
+        "job": "Senior Chemist",
+        "image": "../../images/friend-01.jpg",
+        "friends": "37",
+        "projects": "529",
+        "articles": "306",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "07/10/2022",
+        "vip": true
+    },
+    {
+        "name": "Tyrion Lannister",
+        "job": "Strategist",
+        "image": "../../images/friend-02.jpg",
+        "friends": "752",
+        "projects": "42",
+        "articles": "174",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "15/03/2018",
+        "vip": false
+    },
+    {
+        "name": "Mike Ehrmantraut",
+        "job": "Former Beat Cop",
+        "image": "../../images/friend-03.jpg",
+        "friends": "621",
+        "projects": "192",
+        "articles": "38",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "19/11/2019",
+        "vip": false
+    },
+    {
+        "name": "Shaun Murphy",
+        "job": "Surgeon",
+        "image": "../../images/friend-04.jpg",
+        "friends": "6",
+        "projects": "864",
+        "articles": "74",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "04/05/2020",
+        "vip": true
+    },
+    {
+        "name": "Estella Pocket",
+        "job": "Journalist",
+        "image": "../../images/friend-05.jpg",
+        "friends": "201",
+        "projects": "36",
+        "articles": "749",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "25/01/2021",
+        "vip": false
+    }
+]

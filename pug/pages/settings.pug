@@ -1,0 +1,75 @@
+doctype html
+html(lang="en")
+    head
+        include ../helpers/_variables.pug
+        - var pageName = "Settings";
+        include ../includes/_head.pug
+    body
+        include ../helpers/_mixins.pug
+
+        section.page
+            include ../components/_sidebar.pug
+            .content
+                include ../components/_header.pug
+                +page-heading("Settings")
+                .settings-wrapper
+                    .box.control(data-aos="fade-down-right")
+                        +box-header("fa-solid fa-wrench", "Site Control", "Control the website if there is maintenance")
+                        .heading-setting
+                            .subtitle
+                                h4 Website Control
+                                p Open/Close website and type the reason
+                            div
+                                +switch-toggle(true)
+                        textarea(name="reason", spellcheck="false", placeholder="Closing message content")
+                    .box.general-info(data-aos="fade-down-left")
+                        +box-header("fa-solid fa-id-card-clip", "General Info", "General Information about your account")
+                        div
+                            label(for="first-name") First Name
+                            input#first-name(type="text", value="Philopater", readonly="readonly")
+                        div
+                            label(for="last-name") Last Name
+                            input#last-name(type="text", value="Hany", readonly="readonly")
+                        div
+                            label(for="email-input") Email
+                            input.disabled#email-input(type="email", value="philopaterdev@gmail.com", disabled)
+                            button#change-email(type="button" name="change-email") Change
+                            button#save-email(type="button" name="save-email") Save
+                    .box.security(data-aos="fade-up-right")
+                        +box-header("fa-solid fa-user-lock", "Security Info", "Security information about your account")
+                        ul
+                            li
+                                +subtitle("Password", "Last Change On 25/10/2021")
+                                button(type="button") Change
+                            li
+                                +subtitle("Two-Factor Authentication", "Enable/Disable this feature")
+                                div
+                                    +switch-toggle(true)
+                            li
+                                +subtitle("Devices", "Check the logged in devices")
+                                a(href="#") List
+                    .box.social-media(data-aos="fade-up-left")
+                        +box-header("fa-solid fa-people-arrows", "Social Media", "Your social media accounts")
+                        ul
+                            each item in [["Facebook", "fa-brands fa-facebook-f", "philopater.hany.3"], ["Github", "fa-brands fa-github", "PhilopaterHany"], ["Twitter", "fa-brands fa-twitter", "PhilopaterHany4"], ["Linkedin", "fa-brands fa-linkedin-in", "phth"]]
+                                +social-input(item[0], item[1], item[2])
+                            li
+                                button(type="button") Change
+                    .box.widgets(data-aos="flip-up")
+                        +box-header("fa-solid fa-toolbox", "Widgets Control", "Show/Hide widgets")
+                        ul
+                            each item in [["Quick Draft", true], ["Yearly Targets", true], ["Tickets Statistics", true], ["Latest News", false], ["Recent Tasks", false], ["Top Search Items", true]]
+                                li
+                                    +custom-checkbox(item[0], item[1])
+                    .box.backup(data-aos="flip-down")
+                        +box-header("fa-solid fa-cloud-arrow-up", "Backup Manager", "Control backup time and location")
+                        ul
+                            each item in [["Daily", false], ["Weekly", true], ["Monthly", false]]
+                                li
+                                    +custom-radio(item[0], item[1])
+                        .servers
+                            each item in [["Megaman", "fa-solid fa-server", false], ["Zero", "fa-solid fa-server", false], ["Sigma", "fa-solid fa-server", true]]
+                                +radio-icon-word(item[0], item[1], item[2])
+        .sidebar-overlay
+
+        include ../includes/_scripts.pug

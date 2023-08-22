@@ -1,0 +1,179 @@
+doctype html
+html(lang="en")
+    head
+        include ../helpers/_variables.pug
+        - var pageName = "Dashboard";
+        include ../includes/_head.pug
+        title #{dashboardTitle} | Home
+    body
+        include ../helpers/_mixins.pug
+
+        section.page
+            include ../components/_sidebar.pug
+            .content
+                include ../components/_header.pug
+                +page-heading("Dashboard")
+                .home-boxes-container
+                    .box.welcome(data-aos="fade-down-right")
+                        .intro
+                            .text
+                                +box-header("", "Welcome,", "Philopater")
+                            img(src="images/welcome.png", alt="Welcome")
+                        img(src="images/avatar.png", alt="Avatar")
+                        .details
+                            div
+                                | Philopater
+                                span Developer
+                            div
+                                | 80
+                                span Projects
+                            div
+                                | $8500
+                                span Earned
+                        a(href="profile.html") Profile
+                    .box.draft(data-aos="fade-down-left")
+                        +box-header("fa-solid fa-pen-ruler", "Quick Draft", "Write a draft for your ideas")
+                        form
+                            input(type="text", placeholder="Title")
+                            textarea(name="draft-content", placeholder="Your thought")
+                            button(type="save") Save
+                    .box.targets(data-aos="fade-up-right")
+                        +box-header("fa-solid fa-bullseye", "Yearly Targets", "Targets of the year")
+                        each item in [["projects", "fa-solid fa-code", "574", "84%"], ["money", "fa-solid fa-dollar-sign", "$50,000", "63%"], ["team", "fa-solid fa-user", "19", "95%"]]
+                            +target(item[0], item[1], item[2], item[3])
+                    .box.tickets(data-aos="fade-up-left")
+                        +box-header("fa-solid fa-chart-line", "Tickets Statistics", "Everything about support tickets")
+                        .tickets-container
+                            each item in [["fa-regular fa-rectangle-list", "853", "total"], ["fa-solid fa-spinner", "681", "pending"], ["fa-regular fa-circle-check", "743", "closed"], ["fa-regular fa-rectangle-xmark", "529", "deleted"]]
+                                +ticket(item[0], item[1], item[2])
+                    .box.news(data-aos="flip-up")
+                        +box-header("fa-solid fa-newspaper", "Latest News")
+                        each item in [["images/news-01.png", "Created SASS section", "New SASS examples & tutorials", "3 Days Ago"], ["images/news-02.png", "Changed the design", "A brand new website design", "5 Days Ago"], ["images/news-03.png", "Team increased", "Three developers joined the team", "7 Days Ago"], ["images/news-04.png", "Added payment gateways", "Many new payment gateways added", "9 Days Ago"]]
+                            +news(item[0], item[1], item[2], item[3])
+                    .box.tasks(data-aos="flip-down")
+                        +box-header("fa-solid fa-list-check", "Latest Tasks")
+                        span#tasks-progress
+                        each item in [["Record a new video", "Record python video and create an exe project", "false"], ["Write an article", "Write Low Level vs High Level Languages", "false"], ["Finish a project", "Publish academy programming project", "false"], ["Attend the meeting", "Attend the project business analysis meeting", "true"], ["Finish lesson", "Finish explaining flexbox", "false"]]
+                            +task(item[0], item[1], item[2])
+                    .box.search-items(data-aos="zoom-out-right")
+                        +box-header("fa-solid fa-magnifying-glass", "Top Search Items")
+                        each item in [["Keyword", "Search Count"], ["Programming", "243"], ["Javascript", "178"], ["PHP", "157"], ["Code", "132"], ["Design", "118"], ["Logic", "71"], ["Algorithm", "62"]]
+                            +search-item(item[0], item[1])
+                    .box.uploads(data-aos="zoom-out-left")
+                        +box-header("fa-solid fa-file-arrow-up", "Latest Uploads")
+                        each item in [["images/pdf.svg", "my-file.pdf", "Elzero", "2.8 MB"], ["images/psd.svg", "my-image.psd", "Osama", "4.1 MB"], ["images/zip.svg", "my-zip-file.zip", "User", "5.7 MB"], ["images/avi.svg", "my-video.avi", "Admin", "10.2 MB"], ["images/dll.svg", "my-dll-file.dll", "Philo", "1.6 MB"], ["images/eps.svg", "my-eps-file.eps", "Designer", "5.7 MB"]]
+                            +news(item[0], item[1], item[2], item[3])
+                    .box.project-progress(data-aos="zoom-in-right")
+                        +box-header("fa-solid fa-bars-progress", "Project Progress")
+                        ul
+                            each item in [["Got The Project", "done"], ["Started The Project", "done"], ["The Project About To Finish", "done"], ["Test The Project", "current"], ["Finish The Project & Get Money", ""]]
+                                li(class=item[1]) #{item[0]}
+                        img(src="images/project.png", alt="")
+                    .box.reminders(data-aos="zoom-in-left")
+                        +box-header("fa-regular fa-note-sticky", "Reminders")
+                        each item in [["Check My Tasks List", "28/09/2022 - 7:31 PM"], ["Check My Projects", "26/10/2022 - 5:48 PM"], ["Call My Clients", "04/08/2023 - 2:57 PM"], ["Finish The Development Workshop", "11/04/2023 - 8:23 PM"]]
+                            +reminder(item[0], item[1])
+                    .box.posts(data-aos="flip-up")
+                        #bullets
+                        +box-header("fa-solid fa-address-card", "Latest Posts")
+                        .post-heading#post-heading
+                            img(src="", alt="")
+                            div
+                                h6
+                                span
+                        q.post-body#post-body
+                        .post-footer
+                            div
+                                i.fa-solid.fa-heart
+                                span#post-likes
+                            #arrows
+                                i.fa-solid.fa-chevron-left#previous-post
+                                i.fa-solid.fa-chevron-right#next-post
+                            div
+                                i.fa-solid.fa-comments
+                                span#post-comments
+                    .box.social-media(data-aos="flip-down")
+                        +box-header("fa-solid fa-people-arrows", "Social Media Stats")
+                        each item in [["fa-brands fa-facebook-f", "facebook", "2M Likes", "https://facebook.com/philopater.hany.3/"], ["fa-brands fa-github", "github", "", "https://github.com/PhilopaterHany"], ["fa-brands fa-twitter", "twitter", "500k Followers", "https://twitter.com/PhilopaterHany4/"], ["fa-solid fa-envelope", "gmail", "8k Emails", "mailto:philopaterdev@gmail.com"],["fa-brands fa-linkedin-in", "linkedin", "3k Connections", "https://www.linkedin.com/in/phth/"]]
+                            +social-media(item[0], item[1], item[2], item[3])
+                    .box.projects-table(data-aos="zoom-in-up")
+                        +box-header("fa-solid fa-diagram-project", "Projects")
+                        .responsive-table
+                            table
+                                thead
+                                    tr
+                                        td Name
+                                        td Finish Date
+                                        td Client
+                                        td Funds
+                                        td Team
+                                        td Status
+                                tbody
+                                    tr
+                                        td Ministry Wikipedia
+                                        td 10 May 2022
+                                        td Ministry
+                                        td $5300
+                                        td
+                                            img(decoding="async" src="images/team-01.png" alt="")
+                                            img(decoding="async" src="images/team-02.png" alt="")
+                                            img(decoding="async" src="images/team-03.png" alt="")
+                                            img(decoding="async" src="images/team-05.png" alt="")
+                                        td
+                                            span.pending Pending
+                                    tr
+                                        td Elzero Shop
+                                        td 12 Oct 2021
+                                        td Elzero Company
+                                        td $1500
+                                        td
+                                            img(decoding="async" src="images/team-01.png" alt="")
+                                            img(decoding="async" src="images/team-02.png" alt="")
+                                            img(decoding="async" src="images/team-05.png" alt="")
+                                        td
+                                            span.in-progress In Progress
+                                    tr
+                                        td Bouba App
+                                        td 05 Sep 2021
+                                        td Bouba
+                                        td $800
+                                        td
+                                            img(decoding="async" src="images/team-02.png" alt="")
+                                            img(decoding="async" src="images/team-03.png" alt="")
+                                        td
+                                            span.completed Completed
+                                    tr
+                                        td Mahmoud Website
+                                        td 22 May 2021
+                                        td Mahmoud
+                                        td $600
+                                        td
+                                            img(decoding="async" src="images/team-01.png" alt="")
+                                            img(decoding="async" src="images/team-02.png" alt="")
+                                        td
+                                            span.completed Completed
+                                    tr
+                                        td Sayed Website
+                                        td 24 May 2021
+                                        td Sayed
+                                        td $300
+                                        td
+                                            img(decoding="async" src="images/team-01.png" alt="")
+                                            img(decoding="async" src="images/team-03.png" alt="")
+                                        td
+                                            span.rejected Rejected
+                                    tr
+                                        td Arena Application
+                                        td 01 Mar 2021
+                                        td Arena Company
+                                        td $2600
+                                        td
+                                            img(decoding="async" src="images/team-01.png" alt="")
+                                            img(decoding="async" src="images/team-02.png" alt="")
+                                            img(decoding="async" src="images/team-03.png" alt="")
+                                            img(decoding="async" src="images/team-04.png" alt="")
+                                        td
+                                            span.completed Completed
+        .sidebar-overlay
+
+        include ../includes/_scripts.pug

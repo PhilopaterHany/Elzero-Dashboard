@@ -1,0 +1,67 @@
+// Colors
+$blue-color: #0075ff;
+$blue-alt-color: #0d69d5;
+$orange-color: #f59e0b;
+$green-color: #22c55e;
+$red-color: #f44336;
+
+// Theme Colors
+$white-color: #ffffff;
+$black-color: #000000;
+$grey-color: #cccccc;
+$dark-grey-color: #888888;
+$light-grey-color: #eeeeee;
+$light-mode-background: #f1f5f9;
+$dark-mode-background: #121315;
+$dark-mode-black: #1a1a1e;
+$dark-mode-white: #e7e5e5;
+$dark-mode-grey: #41414185;
+
+// Time Variables
+$duration: 0.25s;
+
+// Media Query Variables
+$mobile-view: 767px;
+
+// Lists For Loops
+$theme-colors: $red-color, $green-color, $blue-color, $orange-color;
+$buttons-status: (
+    "rejected": $red-color,
+    "pending": $orange-color,
+    "completed": $green-color,
+    "in-progress": $blue-color,
+);
+$social-colors: (
+    "facebook": #1877f2,
+    "twitter": #1da1f2,
+    "github": #c9510c,
+    "linkedin": #0a66c2,
+    "gmail": #dd4b39,
+);
+$targets-list: (
+    "money": $blue-color,
+    "projects": $orange-color,
+    "team": $green-color,
+);
+$tickets-list: (
+    "total": $orange-color,
+    "pending": $blue-color,
+    "closed": $green-color,
+    "deleted": $red-color,
+);
+$files-list: (
+    "pdf": $red-color,
+    "images": $green-color,
+    "word": $blue-color,
+    "csv": $orange-color,
+);
+$plans-list: (
+    "free": $green-color,
+    "basic": $blue-color,
+    "premium": $orange-color,
+);
+$icons-list: (
+    "yes": $green-color,
+    "no": $red-color,
+    "help": $dark-grey-color,
+);

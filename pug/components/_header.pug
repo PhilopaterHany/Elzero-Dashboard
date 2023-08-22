@@ -1,0 +1,22 @@
+include ../helpers/_mixins.pug
+include ../helpers/_variables.pug
+
+header
+    i.fa-solid.fa-bars#open-sidebar
+    .search
+        input(type="search" placeholder="Type a keyword")
+    .icons
+        span#notif-btn
+            i.fa-regular.fa-bell.fa-shake.fa-lg
+        a(href="profile.html") 
+            img(src="images/avatar.png", alt="Avatar")
+    ul#notif-list
+        h4 Notifications
+        +notification("images/team-05.png", "It's Mohamed Awad's birthday!", "12 Hours Ago")
+        +notification("images/team-02.png", "Aliaa mentioned you in a comment.", "4 Hours Ago")
+        +notification("images/team-01.png", "Ahmed sent you a friend request.", "19 Hours Ago")
+        +notification("images/team-03.png", "Ahlam reacted to your post.", "23 Hours Ago")
+        +notification("images/team-04.png", "Asmaa reacted to your comment.", "7 Hours Ago")
+        +notification("images/team-05.png", "Ahmed sent you a friend request.", "10 Hours Ago")
+        +notification("images/team-02.png", "Ashraf invited you to a group.", "8 Hours Ago")
+        +notification("images/team-03.png", "Abbas replied to your comment.", "2 Hours Ago")

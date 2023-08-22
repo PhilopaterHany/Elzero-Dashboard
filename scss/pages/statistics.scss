@@ -1,0 +1,22 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+@use "../components/header";
+@use "../components/sidebar";
+
+.charts-container {
+    @include wrapper(400px, 200px);
+    gap: 20px;
+    margin: 0 20px 20px;
+    > div {
+        &.mixed-chart,
+        &.radar-chart {
+            grid-column: 1/-1;
+        }
+        div {
+            margin-top: 15px;
+            @include flexbox("center", "center");
+        }
+    }
+}

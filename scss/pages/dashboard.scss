@@ -1,0 +1,829 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+@use "../components/header";
+@use "../components/sidebar";
+
+.home-boxes-container {
+    @include wrapper(450px, 200px);
+    .box {
+        &.welcome {
+            padding: 0;
+            padding-bottom: 20px;
+            overflow: hidden;
+            .intro {
+                padding: 20px;
+                background-color: $light-grey-color;
+                @include flexbox("space-between");
+                @media (max-width: $mobile-view) {
+                    padding-bottom: 30px;
+                    text-align: center;
+                    justify-content: center;
+                }
+                .text {
+                    h2 {
+                        margin: 0 0 -5px 0;
+                    }
+                    p {
+                        color: $dark-grey-color;
+                    }
+                }
+                img {
+                    @extend %hide-mobile;
+                    width: 200px;
+                    margin-bottom: -10px;
+                }
+            }
+            > img {
+                padding: 2px;
+                margin-left: 20px;
+                margin-top: -32px;
+                @include circleImage(64px);
+                @media (max-width: $mobile-view) {
+                    position: relative;
+                    margin-left: 0;
+                    left: 50%;
+                    @include transform(translateX(-50%));
+                }
+            }
+            .details {
+                margin-block: 40px 20px;
+                border: 1px solid $light-grey-color;
+                border-right: none;
+                border-left: none;
+                @include flexbox("center", "center");
+                @include mobileColumn(false);
+                div {
+                    padding: 20px;
+                    flex: 1;
+                    @include flexbox("center", "center", "column", "", "10px");
+                    @include transDur($duration, "ease-in-out");
+                    @media (max-width: $mobile-view) {
+                        width: 100%;
+                        padding: 10px;
+                    }
+                    &:hover {
+                        background-color: $light-grey-color;
+                        span {
+                            color: $black-color;
+                        }
+                    }
+                    span {
+                        font-size: 14px;
+                        color: $dark-grey-color;
+                        @include transDur($duration, "ease-in-out");
+                    }
+                }
+            }
+            > a {
+                @include button($blue-color);
+                float: right;
+                margin-inline-end: 20px;
+                font-size: 14px;
+            }
+        }
+        &.draft {
+            h2 {
+                margin-bottom: 0;
+            }
+            p {
+                margin-block: 10px 20px;
+                color: $dark-grey-color;
+                font-size: 15px;
+            }
+            form {
+                @include flexbox("center", "center", "column", "", "20px");
+                input {
+                    @extend %basic-input;
+                }
+                textarea {
+                    @extend %basic-input;
+                    min-height: 180px;
+                    resize: none;
+                }
+                button {
+                    align-self: flex-end;
+                    @include button($blue-color);
+                }
+            }
+        }
+        &.targets {
+            .box-header {
+                h2 {
+                    margin-bottom: 0;
+                }
+            }
+            .target {
+                &:not(:last-of-type) {
+                    margin-bottom: 20px;
+                }
+                @include flexbox("center", "center", "", "", "15px");
+                @each $name, $colour in $targets-list {
+                    &.#{$name} {
+                        .icon {
+                            background-color: rgba(
+                                $color: $colour,
+                                $alpha: 0.2
+                            );
+                            i {
+                                color: $colour;
+                            }
+                        }
+                        .details {
+                            .progress {
+                                background-color: rgba(
+                                    $color: $colour,
+                                    $alpha: 0.2
+                                );
+                                > span {
+                                    background-color: $colour;
+                                    span {
+                                        background-color: $colour;
+                                        &::before {
+                                            border-color: $colour
+                                                transparent
+                                                transparent
+                                                transparent;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .icon {
+                    width: 80px;
+                    height: 80px;
+                    @include flexbox("center", "center");
+                }
+                .details {
+                    flex: 1;
+                    > span {
+                        display: block;
+                        &:first-of-type {
+                            color: $dark-grey-color;
+                            font-size: 14px;
+                            text-transform: capitalize;
+                        }
+                        &:last-of-type {
+                            display: block;
+                            margin-block: 5px 10px;
+                            font-weight: bold;
+                        }
+                    }
+                    .progress {
+                        position: relative;
+                        height: 4px;
+                        > span {
+                            display: inline-block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 0;
+                            height: 100%;
+                            @include transDur(#{$duration * 2}, "ease-in-out");
+                            span {
+                                position: absolute;
+                                bottom: 16px;
+                                right: -16px;
+                                color: $white-color;
+                                padding: 3px 6px;
+                                @include bRad(6px);
+                                font-size: 13px;
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    bottom: -10px;
+                                    left: 50%;
+                                    border: 5px solid;
+                                    @include transform(translateX(-50%));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.tickets {
+            .box-header {
+                h2 {
+                    margin-bottom: 0;
+                }
+            }
+            .tickets-container {
+                margin-top: 20px;
+                @include flexbox("", "", "", "wrap", "20px");
+                @media (max-width: $mobile-view) {
+                    @include flexbox("center", "center", "column", "", "10px");
+                }
+                .ticket {
+                    padding: 20px;
+                    width: calc(50% - 10px);
+                    border: 2px solid $light-grey-color;
+                    font-size: 13px;
+                    color: $dark-grey-color;
+                    @include bRad(10px);
+                    @include flexbox("center", "center", "column", "", "15px");
+                    @include transDur($duration, "ease-in-out");
+                    @each $name, $colour in $tickets-list {
+                        &.#{$name} {
+                            &:hover {
+                                border-color: $colour;
+                            }
+                            > i {
+                                color: $colour;
+                            }
+                        }
+                    }
+                    @media (max-width: $mobile-view) {
+                        width: 100%;
+                    }
+                    > span {
+                        &:first-of-type {
+                            color: $black-color;
+                            font: {
+                                size: 25px;
+                                weight: bold;
+                            }
+                        }
+                        &:last-of-type {
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+        &.news {
+            > div:not(.box-header) {
+                @extend %list-with-separator;
+                @media (max-width: $mobile-view) {
+                    flex-direction: column;
+                    gap: 15px;
+                    div {
+                        text-align: center;
+                    }
+                }
+                img {
+                    width: 100px;
+                    margin-inline-end: 15px;
+                    @include bRad(6px);
+                }
+                span {
+                    padding: 5px 10px;
+                    @include bRad(6px);
+                    font-size: 13px;
+                    background-color: $light-grey-color;
+                }
+            }
+        }
+        &.tasks {
+            position: relative;
+            #tasks-progress {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                padding: 10px 5px;
+                background-color: $light-grey-color;
+                @include bRad(6px);
+                &.good {
+                    background-color: $green-color;
+                    color: $white-color;
+                }
+            }
+            .task {
+                @extend %list-with-separator;
+                &.done {
+                    opacity: 0.4;
+                    div {
+                        text-decoration: line-through wavy $red-color;
+                    }
+                }
+                i {
+                    display: inline-block;
+                    cursor: pointer;
+                    margin-inline: 5px;
+                    @include transDur($duration, "ease-in-out");
+                }
+                &:not(.done) {
+                    &:hover {
+                        .fa-check {
+                            color: $green-color;
+                        }
+                        .fa-xmark {
+                            color: $orange-color;
+                        }
+                        .fa-trash-can {
+                            color: $red-color;
+                        }
+                    }
+                }
+            }
+        }
+        &.search-items {
+            > div:not(.box-header) {
+                @extend %list-with-separator;
+                &:first-of-type {
+                    border-bottom: none;
+                    color: $dark-grey-color;
+                }
+                &:not(:first-of-type) {
+                    .number {
+                        padding: 5px 10px;
+                        @include bRad(6px);
+                        font-size: 13px;
+                        background-color: $light-grey-color;
+                    }
+                }
+            }
+        }
+        &.uploads {
+            > div:not(.box-header) {
+                @extend %list-with-separator;
+                img {
+                    width: 40px;
+                    margin-inline-end: 15px;
+                }
+                span {
+                    padding: 5px 10px;
+                    @include bRad(6px);
+                    font-size: 14px;
+                    background-color: $light-grey-color;
+                }
+            }
+        }
+        &.project-progress {
+            position: relative;
+            ul {
+                position: relative;
+                @include flexbox("center", "", "column", "", "25px");
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 11px;
+                    width: 3px;
+                    height: 100%;
+                    background-color: $green-color;
+                }
+                li {
+                    position: relative;
+                    @include flexbox("", "center");
+                    &::before {
+                        content: "";
+                        display: block;
+                        margin-right: 15px;
+                        width: 20px;
+                        height: 20px;
+                        @include bRad(50%);
+                        z-index: 1;
+                        background-color: $white-color;
+                        border: 3px solid $green-color;
+                    }
+                    &.done,
+                    &.current {
+                        &::after {
+                            content: "\f00c";
+                            font: var(--fa-font-solid);
+                            background-color: $green-color;
+                            width: 17px;
+                            height: 17px;
+                            position: absolute;
+                            top: 4px;
+                            left: 4px;
+                            color: $white-color;
+                            z-index: 2;
+                            font-size: 12px;
+                            @include bRad(50%);
+                            @include flexbox("center", "center");
+                        }
+                    }
+                    &.current {
+                        &::after {
+                            animation: fade-out 0.8s infinite alternate;
+                            -webkit-animation: fade-out 0.8s infinite alternate;
+                        }
+                    }
+                    @media (max-width: $mobile-view) {
+                        font-size: 14px;
+                    }
+                }
+            }
+            > img {
+                position: absolute;
+                width: 160px;
+                right: 0;
+                bottom: 0;
+                opacity: 0.1;
+                @extend %hide-mobile;
+            }
+        }
+        &.reminders {
+            .reminder {
+                @include flexbox("", "center", "", "", "15px");
+                > span {
+                    display: block;
+                    position: relative;
+                    width: 15px;
+                    height: 15px;
+                    @include bRad(50%);
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        @include bRad(50%);
+                        opacity: 0.6;
+                    }
+                    &::before {
+                        -webkit-animation: pulse 2s ease-out infinite;
+                        animation: pulse 2s ease-out infinite;
+                    }
+                    &::after {
+                        -webkit-animation: pulse 2s 1s ease-out infinite;
+                        animation: pulse 2s 1s ease-out infinite;
+                    }
+                }
+                &:not(:last-of-type) {
+                    margin-bottom: 15px;
+                }
+                > div {
+                    flex: 1;
+                    padding-inline-start: 15px;
+                    border-left: 2px solid;
+                    p {
+                        margin-bottom: 5px;
+                        font: {
+                            weight: bold;
+                            size: 14px;
+                        }
+                    }
+                    span {
+                        font-size: 13px;
+                        color: $dark-grey-color;
+                    }
+                }
+            }
+            @for $i from 1 through length($theme-colors) {
+                $colour: nth($theme-colors, $i);
+                .reminder:nth-child(#{$i + 1}) {
+                    > span {
+                        background-color: $colour;
+                        &::before,
+                        &::after {
+                            background-color: $colour;
+                        }
+                    }
+                    > div {
+                        border-left-color: $colour;
+                    }
+                }
+            }
+        }
+        &.posts {
+            position: relative;
+            #bullets {
+                @include flexbox("center", "center", "", "", "10px");
+                position: absolute;
+                top: 30px;
+                right: 20px;
+                width: 100px;
+                height: 20px;
+                @extend %hide-mobile;
+                span {
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    cursor: pointer;
+                    @include bRad(50%);
+                    background-color: transparent;
+                    border: 1px solid $dark-grey-color;
+                    @include transDur($duration, "ease-in-out");
+                    &.active {
+                        background-color: $orange-color;
+                        border-color: $orange-color;
+                    }
+                }
+            }
+            .post-heading {
+                @include flexbox("", "center", "", "", "15px");
+                img {
+                    width: 48px;
+                    height: 48px;
+                    @include bRad(50%);
+                }
+                div {
+                    flex: 1;
+                    h6 {
+                        font-size: 16px;
+                    }
+                    span {
+                        color: $dark-grey-color;
+                        font-size: 13px;
+                    }
+                }
+            }
+            .post-body {
+                @include flexbox("center", "center");
+                position: relative;
+                margin-block: 20px;
+                padding-block: 20px;
+                min-height: 240px;
+                line-height: 1.8;
+                text-align: center;
+                color: $dark-grey-color;
+                border-top: 1px solid $light-grey-color;
+                border-bottom: 1px solid $light-grey-color;
+                @media (max-width: $mobile-view) {
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    line-height: unset;
+                    text-align: unset;
+                    min-height: unset;
+                    &::before,
+                    &::after {
+                        content: "" !important;
+                    }
+                }
+                &::before,
+                &::after {
+                    position: relative;
+                    font: var(--fa-font-solid);
+                    font-size: 10px;
+                    color: $blue-color;
+                    bottom: 7px;
+                }
+                &::before {
+                    content: "\f10d";
+                    right: 5px;
+                }
+                &::after {
+                    content: "\f10e";
+                }
+            }
+            .post-footer {
+                @include flexbox("space-between", "center");
+                div {
+                    min-width: 85px;
+                    color: $dark-grey-color;
+                    i {
+                        margin-inline-end: 5px;
+                    }
+                    &:first-of-type {
+                        i {
+                            color: $red-color;
+                        }
+                    }
+                    &:last-of-type {
+                        i {
+                            color: $green-color;
+                        }
+                    }
+                }
+                #arrows {
+                    @include flexbox("space-between", "center");
+                    min-width: 70px;
+                    i {
+                        cursor: pointer;
+                        color: $dark-grey-color;
+                        &.disabled {
+                            cursor: no-drop;
+                            opacity: 0.25;
+                        }
+                    }
+                }
+            }
+        }
+        &.social-media {
+            .social-media-account {
+                padding: 15px;
+                padding-left: 70px;
+                position: relative;
+                &:not(:last-of-type) {
+                    margin-bottom: 15px;
+                }
+                @include flexbox("space-between", "center");
+                @media (max-width: $mobile-view) {
+                    padding: 10px;
+                    padding-left: 60px;
+                }
+                i {
+                    @include flexbox("center", "center");
+                    height: 100%;
+                    width: 52px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    color: $white-color;
+                    font-size: 20px;
+                }
+                span {
+                    flex: 1;
+                }
+                a {
+                    color: $white-color;
+                    font-size: 14px;
+                    padding: 5px 10px;
+                    @include bRad(6px);
+                    cursor: pointer;
+                }
+                @each $class, $colour in $social-colors {
+                    &.#{$class} {
+                        color: $colour;
+                        background-color: rgba($color: $colour, $alpha: 0.35);
+                        i {
+                            background-color: $colour;
+                        }
+                        a {
+                            background-color: $colour;
+                        }
+                    }
+                }
+            }
+        }
+        &.projects-table {
+            grid-column: 1/-1;
+            @media (max-width: 1199px) {
+                grid-column: span 1;
+            }
+            .responsive-table {
+                overflow-x: auto;
+                table {
+                    width: 100%;
+                    min-width: 1000px;
+                    border-spacing: 0;
+                    font-size: 15px;
+                    td {
+                        padding: 15px;
+                    }
+                    thead {
+                        td {
+                            background-color: $light-grey-color;
+                            font-weight: bold;
+                        }
+                    }
+                    tbody {
+                        tr {
+                            td {
+                                border-bottom: 1px solid $light-grey-color;
+                                border-left: 1px solid $light-grey-color;
+                                @include transDur($duration, "ease-in-out");
+                                img {
+                                    @include circleImage(32px);
+                                }
+                                span {
+                                    cursor: default !important;
+                                    @each $class, $colour in $buttons-status {
+                                        &.#{$class} {
+                                            @include button($colour);
+                                        }
+                                    }
+                                    &:hover {
+                                        filter: unset !important;
+                                        -webkit-filter: unset !important;
+                                    }
+                                }
+                            }
+                            &:hover {
+                                td {
+                                    background-color: #faf7f7;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    .box {
+        &.welcome {
+            > img {
+                border-color: $dark-mode-black;
+            }
+            .intro {
+                background-color: $dark-mode-grey;
+            }
+            .details {
+                border-color: $dark-grey-color;
+                div {
+                    &:hover {
+                        background-color: $dark-mode-grey;
+                        span {
+                            color: $dark-mode-white;
+                        }
+                    }
+                }
+            }
+        }
+        &.draft {
+            form {
+                input,
+                textarea {
+                    background-color: $dark-mode-background;
+                    color: $dark-mode-white;
+                    border-color: #3c4043;
+                    &:focus {
+                        border-color: $blue-color !important;
+                    }
+                }
+            }
+        }
+        &.tickets {
+            .tickets-container {
+                .ticket {
+                    border-color: $dark-grey-color;
+                    span {
+                        &:first-of-type {
+                            color: $dark-mode-white;
+                        }
+                    }
+                }
+            }
+        }
+        &.search-items,
+        &.uploads,
+        &.news {
+            > div:not(.box-header) {
+                border-color: $dark-grey-color !important;
+                &:hover {
+                    background-color: $dark-mode-grey !important;
+                    border-color: $blue-color !important;
+                }
+                &:not(:first-of-type) {
+                    span {
+                        background-color: $dark-mode-grey !important;
+                    }
+                }
+            }
+        }
+        &.tasks {
+            #tasks-progress {
+                background-color: $dark-mode-grey;
+                color: $dark-mode-white;
+                &.good {
+                    color: $dark-mode-black;
+                }
+            }
+            .task {
+                border-color: $dark-grey-color !important;
+                &:hover {
+                    background-color: $dark-mode-grey;
+                    border-color: $blue-color !important;
+                }
+            }
+        }
+        &.project-progress {
+            ul {
+                &::before {
+                    background-color: $green-color;
+                }
+                li {
+                    &::before {
+                        background-color: $dark-mode-black;
+                        border: 3px solid $green-color;
+                    }
+                    &.done,
+                    &.current {
+                        &::after {
+                            background-color: $green-color;
+                            color: $dark-mode-white;
+                        }
+                    }
+                }
+            }
+        }
+        &.posts {
+            .post-body {
+                border-color: $dark-grey-color;
+            }
+        }
+        &.projects-table {
+            .responsive-table {
+                table {
+                    thead {
+                        td {
+                            background-color: $dark-mode-grey;
+                        }
+                    }
+                    tbody {
+                        tr {
+                            &:hover {
+                                td {
+                                    background-color: $dark-mode-grey;
+                                }
+                            }
+                            td {
+                                border-color: $dark-grey-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "avatar": {
+        "image": "../../images/avatar.png",
+        "nickName": "Rafay",
+        "level": "17",
+        "xpProgress": "70",
+        "rating": "550"
+    },
+    "general": {
+        "fullName": "Philopater Hany",
+        "gender": "Male",
+        "country": "Egypt"
+    },
+    "personal": {
+        "email": "philopaterdev@gmail.com",
+        "phoneNumber": "+201220009999",
+        "birthdate": "04/08/2005"
+    },
+    "job": {
+        "title": "Full-Stack Developer",
+        "progLang": "JavaScript",
+        "experience": "+15"
+    },
+    "billing": {
+        "paymentMethod": "Paypal",
+        "plan": "Basic",
+        "subscription": "Monthly"
+    },
+    "skills": [
+        ["HTML", "Pug.js"],
+        ["CSS", "SCSS", "Bootstrap"],
+        ["JavaScript", "TypeScript"],
+        ["React.js", "Angular.js"],
+        ["Gulp.js", "Jest"],
+        ["Python", "Flask"],
+        ["C++", "PHP"]
+    ]
+}

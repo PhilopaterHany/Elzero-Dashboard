@@ -1,0 +1,127 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/global_rules";
+
+@use "../components/header";
+@use "../components/sidebar";
+
+#projects-container {
+    @include wrapper(450px, 200px);
+    .project {
+        position: relative;
+        background-color: $white-color;
+        padding: 20px;
+        border: 2px solid transparent;
+        @include bRad(6px);
+        @include transDur($duration, "ease-in-out");
+        &:hover {
+            border-color: $blue-color;
+            .keywords-container {
+                border-color: $blue-color;
+            }
+        }
+        > span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: $dark-grey-color;
+            font-size: 13px;
+        }
+        > p {
+            font-size: 14px;
+            color: $dark-grey-color;
+            margin-block: 10px;
+        }
+        .team-images {
+            position: relative;
+            min-height: 80px;
+            a {
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                @for $i from 1 through 5 {
+                    &:nth-child(#{$i}) {
+                        left: #{0 + ($i - 1) * 25}px;
+                    }
+                }
+                &:hover {
+                    z-index: 99;
+                }
+                img {
+                    @include circleImage(40px);
+                }
+            }
+        }
+        .keywords-container {
+            padding-block: 15px;
+            border-top: 1px solid $light-grey-color;
+            border-bottom: 1px solid $light-grey-color;
+            @include flexbox("flex-end", "center", "", "", "10px");
+            @include transDur($duration, "ease-in-out");
+            @media (max-width: $mobile-view) {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+            span {
+                padding: 5px;
+                font-size: 13px;
+                @include bRad(6px);
+                background-color: $light-grey-color;
+            }
+        }
+        .info {
+            padding-top: 15px;
+            @include flexbox("space-between", "center");
+            .progress-container {
+                height: 12px;
+                width: 260px;
+                background-color: $light-grey-color;
+                @include bRad(6px);
+                span {
+                    height: 100%;
+                    padding-right: 5px;
+                    padding-top: 1px;
+                    color: $white-color;
+                    font-size: 10px;
+                    @include bRad(6px);
+                    @include flexbox("flex-end", "center");
+                }
+            }
+            > span {
+                position: relative;
+                font-size: 14px;
+                &::before {
+                    content: "\24";
+                    position: absolute;
+                    top: 0;
+                    left: -15px;
+                    color: $green-color;
+                }
+            }
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    #projects-container {
+        .project {
+            &:hover {
+                .keywords-container {
+                    border-color: $blue-color;
+                }
+            }
+            .keywords-container {
+                border-color: $dark-grey-color;
+                span {
+                    background-color: $dark-mode-grey !important;
+                    color: $dark-mode-white !important;
+                }
+            }
+            .info {
+                .progress-container {
+                    background-color: $dark-mode-grey !important;
+                }
+            }
+        }
+    }
+}
