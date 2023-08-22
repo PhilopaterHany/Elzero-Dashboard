@@ -1,6 +1,6 @@
 const filesContainer = document.getElementById("files-container");
 
-fetch("../json/files.json")
+fetch("json/files.json")
     .then((response) => response.json())
     .then((files) => {
         files.map((file) => {

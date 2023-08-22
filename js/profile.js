@@ -17,7 +17,7 @@ const plan = document.getElementById("plan");
 const subscription = document.getElementById("subscription");
 const skillsUl = document.querySelector(".skills-wrapper");
 
-fetch("../json/profile.json")
+fetch("json/profile.json")
     .then((response) => response.json())
     .then((data) => {
         avatar.src = data.avatar.image;

@@ -109,7 +109,7 @@ deleteTaskBtns.map((deleteBtn) => {
     });
 });
 
-fetch("../json/posts.json")
+fetch("json/posts.json")
     .then((response) => response.json())
     .then((posts) => {
         for (let i = 0; i < posts.length; i++) {

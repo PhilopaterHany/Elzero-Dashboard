@@ -1,6 +1,6 @@
 const friendsContainer = document.getElementById("friends-container");
 
-fetch("../json/friends.json")
+fetch("json/friends.json")
     .then((response) => response.json())
     .then((friends) => {
         friends.map((friend) => {

@@ -1,6 +1,6 @@
 const coursesContainer = document.getElementById("courses-container");
 
-fetch("../json/courses.json")
+fetch("json/courses.json")
     .then((response) => response.json())
     .then((courses) => {
         courses.map((course) => {

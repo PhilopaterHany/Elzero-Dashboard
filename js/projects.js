@@ -12,7 +12,7 @@ function progressColor(progress) {
     }
 }
 
-fetch("../json/projects.json")
+fetch("json/projects.json")
     .then((response) => response.json())
     .then((projects) => {
         projects.map((project) => {
