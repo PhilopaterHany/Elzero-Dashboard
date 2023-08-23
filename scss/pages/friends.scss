@@ -80,7 +80,8 @@
                 color: $orange-color;
                 font-size: 40px;
                 font-weight: bold;
-                text-transform: uppercase;
+                user-select: none;
+                -webkit-user-drag: none;
                 opacity: 0.25;
                 @include transform(translateY(-50%));
             }

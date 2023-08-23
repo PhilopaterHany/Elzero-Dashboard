@@ -72,7 +72,7 @@ fetch("../json/friends.json")
             if (friend.vip) {
                 let vipLogo = document.createElement("span");
                 vipLogo.className = "vip";
-                vipLogo.innerHTML = "vip";
+                vipLogo.innerHTML = "VIP";
                 data.appendChild(vipLogo);
             }
 
