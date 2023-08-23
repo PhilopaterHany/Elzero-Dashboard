@@ -32,10 +32,7 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     themeCheckBox.checked = false;
 }
 themeCheckBox.addEventListener("change", (cb) => {
-    document.body.setAttribute(
-        "data-theme",
-        cb.target.checked ? "dark" : "light"
-    );
+    document.body.setAttribute("data-theme", cb.target.checked ? "dark" : "light");
 });
 
 AOS.init({ duration: "700" });

@@ -2,7 +2,7 @@
     {
         "name": "Arthur Morgan",
         "job": "JavaScript Developer",
-        "image": "../../images/friend-01.jpg",
+        "image": "images/friend-01.jpg",
         "friends": "342",
         "projects": "74",
         "articles": "821",
@@ -14,7 +14,7 @@
     {
         "name": "John Marston",
         "job": "Cloud Developer",
-        "image": "../../images/friend-02.jpg",
+        "image": "images/friend-02.jpg",
         "friends": "198",
         "projects": "57",
         "articles": "124",
@@ -26,7 +26,7 @@
     {
         "name": "Sadie Adler",
         "job": "Mobile Developer",
-        "image": "../../images/friend-03.jpg",
+        "image": "images/friend-03.jpg",
         "friends": "71",
         "projects": "48",
         "articles": "23",
@@ -38,7 +38,7 @@
     {
         "name": "Rachel Jones",
         "job": "PHP Developer",
-        "image": "../../images/friend-04.jpg",
+        "image": "images/friend-04.jpg",
         "friends": "182",
         "projects": "203",
         "articles": "64",
@@ -50,7 +50,7 @@
     {
         "name": "Saul Goodman",
         "job": "Lead Attorney",
-        "image": "../../images/friend-05.jpg",
+        "image": "images/friend-05.jpg",
         "friends": "802",
         "projects": "761",
         "articles": "2439",
@@ -62,7 +62,7 @@
     {
         "name": "Walter White",
         "job": "Senior Chemist",
-        "image": "../../images/friend-01.jpg",
+        "image": "images/friend-01.jpg",
         "friends": "37",
         "projects": "529",
         "articles": "306",
@@ -74,7 +74,7 @@
     {
         "name": "Tyrion Lannister",
         "job": "Strategist",
-        "image": "../../images/friend-02.jpg",
+        "image": "images/friend-02.jpg",
         "friends": "752",
         "projects": "42",
         "articles": "174",
@@ -86,7 +86,7 @@
     {
         "name": "Mike Ehrmantraut",
         "job": "Former Beat Cop",
-        "image": "../../images/friend-03.jpg",
+        "image": "images/friend-03.jpg",
         "friends": "621",
         "projects": "192",
         "articles": "38",
@@ -98,7 +98,7 @@
     {
         "name": "Shaun Murphy",
         "job": "Surgeon",
-        "image": "../../images/friend-04.jpg",
+        "image": "images/friend-04.jpg",
         "friends": "6",
         "projects": "864",
         "articles": "74",
@@ -110,7 +110,7 @@
     {
         "name": "Estella Pocket",
         "job": "Journalist",
-        "image": "../../images/friend-05.jpg",
+        "image": "images/friend-05.jpg",
         "friends": "201",
         "projects": "36",
         "articles": "749",
