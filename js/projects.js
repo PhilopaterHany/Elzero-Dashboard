@@ -43,11 +43,9 @@ fetch("../json/projects.json")
 
                 let image = document.createElement("img");
                 image.src = project.team[imgPath];
-                image.alt = `Team Member ${project.team[imgPath].slice(
-                    project.team[imgPath].indexOf("-") + 1,
-                    project.team[imgPath].indexOf(".")
-                )}`;
+                image.alt = `Team Member ${project.team[imgPath].slice(project.team[imgPath].indexOf("-") + 1, project.team[imgPath].indexOf("."))}`;
                 member.appendChild(image);
+
                 teamImgs.appendChild(member);
             }
 
@@ -70,10 +68,8 @@ fetch("../json/projects.json")
             infoDiv.appendChild(progressContainer);
 
             let progress = document.createElement("span");
-            progress.innerHTML =
-                project.progress <= 0 ? "0%" : `${project.progress}%`;
-            progress.style.width =
-                project.progress <= 0 ? "0%" : `${project.progress}%`;
+            progress.innerHTML = project.progress <= 0 ? "0%" : `${project.progress}%`;
+            progress.style.width = project.progress <= 0 ? "0%" : `${project.progress}%`;
             progress.style.backgroundColor = progressColor(project.progress);
             progressContainer.appendChild(progress);
 
