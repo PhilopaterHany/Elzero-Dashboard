@@ -17,7 +17,7 @@ html(lang="en")
                     .box.welcome(data-aos="fade-down-right")
                         .intro
                             .text
-                                +box-header("", "Welcome,", "Philopater")
+                                +box-header("", "Welcome,")
                             img(src="images/welcome.png", alt="Welcome")
                         img(src="images/avatar.png", alt="Avatar")
                         .details
@@ -36,7 +36,7 @@ html(lang="en")
                         form
                             input(type="text", placeholder="Title")
                             textarea(name="draft-content", placeholder="Your thought")
-                            button(type="save") Save
+                            button(type="button") Save
                     .box.targets(data-aos="fade-up-right")
                         +box-header("fa-solid fa-bullseye", "Yearly Targets", "Targets of the year")
                         each item in [["projects", "fa-solid fa-code", "574", "84%"], ["money", "fa-solid fa-dollar-sign", "$50,000", "63%"], ["team", "fa-solid fa-user", "19", "95%"]]
@@ -103,77 +103,12 @@ html(lang="en")
                                 thead
                                     tr
                                         td Name
-                                        td Finish Date
+                                        td Start Date
                                         td Client
-                                        td Funds
+                                        td Profit
                                         td Team
                                         td Status
                                 tbody
-                                    tr
-                                        td Ministry Wikipedia
-                                        td 10 May 2022
-                                        td Ministry
-                                        td $5300
-                                        td
-                                            img(decoding="async" src="images/team-01.png" alt="")
-                                            img(decoding="async" src="images/team-02.png" alt="")
-                                            img(decoding="async" src="images/team-03.png" alt="")
-                                            img(decoding="async" src="images/team-05.png" alt="")
-                                        td
-                                            span.pending Pending
-                                    tr
-                                        td Elzero Shop
-                                        td 12 Oct 2021
-                                        td Elzero Company
-                                        td $1500
-                                        td
-                                            img(decoding="async" src="images/team-01.png" alt="")
-                                            img(decoding="async" src="images/team-02.png" alt="")
-                                            img(decoding="async" src="images/team-05.png" alt="")
-                                        td
-                                            span.in-progress In Progress
-                                    tr
-                                        td Bouba App
-                                        td 05 Sep 2021
-                                        td Bouba
-                                        td $800
-                                        td
-                                            img(decoding="async" src="images/team-02.png" alt="")
-                                            img(decoding="async" src="images/team-03.png" alt="")
-                                        td
-                                            span.completed Completed
-                                    tr
-                                        td Mahmoud Website
-                                        td 22 May 2021
-                                        td Mahmoud
-                                        td $600
-                                        td
-                                            img(decoding="async" src="images/team-01.png" alt="")
-                                            img(decoding="async" src="images/team-02.png" alt="")
-                                        td
-                                            span.completed Completed
-                                    tr
-                                        td Sayed Website
-                                        td 24 May 2021
-                                        td Sayed
-                                        td $300
-                                        td
-                                            img(decoding="async" src="images/team-01.png" alt="")
-                                            img(decoding="async" src="images/team-03.png" alt="")
-                                        td
-                                            span.rejected Rejected
-                                    tr
-                                        td Arena Application
-                                        td 01 Mar 2021
-                                        td Arena Company
-                                        td $2600
-                                        td
-                                            img(decoding="async" src="images/team-01.png" alt="")
-                                            img(decoding="async" src="images/team-02.png" alt="")
-                                            img(decoding="async" src="images/team-03.png" alt="")
-                                            img(decoding="async" src="images/team-04.png" alt="")
-                                        td
-                                            span.completed Completed
         .sidebar-overlay
 
         include ../includes/_scripts.pug

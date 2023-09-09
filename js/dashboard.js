@@ -1,3 +1,7 @@
+const welcomeBoxHeader = document.querySelector(".box.welcome .box-header");
+const draftTitle = document.querySelector(".draft form input");
+const draftTxt = document.querySelector(".draft form textarea");
+const draftBtn = document.querySelector(".draft form button");
 const tasks = Array.from(document.querySelectorAll(".task"));
 const progressSpan = document.getElementById("tasks-progress");
 const uncheckTaskBtns = Array.from(document.querySelectorAll(".task .uncheck-btn"));
@@ -14,17 +18,54 @@ const postLikes = document.getElementById("post-likes");
 const postComments = document.getElementById("post-comments");
 const githubFollowersSpan = document.querySelector(".social-media-account.github span");
 const counters = document.querySelector(".box.tickets");
-const counterElements = document.querySelectorAll(".box.tickets .ticket span:first-of-type");
+const counterElements = Array.from(document.querySelectorAll(".box.tickets .ticket span:first-of-type"));
 const progress = document.querySelector(".box.targets");
-const progressSpans = document.querySelectorAll(".box.targets .progress > span");
+const progressSpans = Array.from(document.querySelectorAll(".box.targets .progress > span"));
+const tableBody = document.querySelector("table tbody");
 let countStarted = false;
 let progressStarted = false;
 
+fetch("../json/profile.json")
+    .then((response) => response.json())
+    .then((data) => {
+        let userName = document.createElement("p");
+        userName.innerHTML = data.general.fullName.slice(0, data.general.fullName.indexOf(" "));
+        // userName.innerHTML = data.avatar.nickName;
+        welcomeBoxHeader.appendChild(userName);
+    });
+window.addEventListener("load", () => {
+    if (localStorage.draft) {
+        let stringifiedDraft = localStorage.getItem("draft");
+        let draftObject = JSON.parse(stringifiedDraft);
+        draftTitle.value = draftObject.title;
+        draftTxt.value = draftObject.text;
+    }
+});
+draftBtn.addEventListener("click", () => {
+    console.log(draftTitle.value);
+    console.log(draftTxt.value);
+    if (draftTitle.value == "" || draftTxt.value == "") {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Fill in the draft title and content please!",
+        });
+    } else {
+        let draftObject = { title: draftTitle.value, text: draftTxt.value };
+        let stringifiedDraft = JSON.stringify(draftObject);
+        localStorage.setItem("draft", stringifiedDraft);
+        Swal.fire({
+            icon: "success",
+            title: "Your draft has been saved.",
+            showConfirmButton: true,
+            timer: 1500,
+        });
+    }
+});
+
 window.addEventListener("scroll", () => {
     if (window.scrollY >= progress.offsetTop - 300) {
-        if (!progressStarted) {
-            progressSpans.forEach((prog) => prog.style.width = prog.dataset.width);
-        }
+        if (!progressStarted) progressSpans.forEach((prog) => (prog.style.width = prog.dataset.width));
         progressStarted = true;
     }
 });
@@ -37,9 +78,7 @@ function startCount(ele) {
 }
 window.addEventListener("scroll", () => {
     if (window.scrollY >= counters.offsetTop - 300) {
-        if (!countStarted) {
-            counterElements.forEach((num) => startCount(num));
-        }
+        if (!countStarted) counterElements.forEach((num) => startCount(num));
         countStarted = true;
     }
 });
@@ -57,16 +96,12 @@ function taskIcons() {
 }
 
 function updateDoneTasksNumber() {
-    progressSpan.innerHTML = `${
-        Array.from(document.querySelectorAll(".task.done")).length
-    }/${Array.from(document.querySelectorAll(".task")).length} Completed`;
+    progressSpan.innerHTML = `${Array.from(document.querySelectorAll(".task.done")).length}/${Array.from(document.querySelectorAll(".task")).length} Completed`;
 
     if (Array.from(document.querySelectorAll(".task.done")).length === Array.from(document.querySelectorAll(".task")).length) {
         progressSpan.classList.add("good");
     } else {
-        if (progressSpan.classList.contains("good")) {
-            progressSpan.classList.remove("good");
-        }
+        if (progressSpan.classList.contains("good")) progressSpan.classList.remove("good");
     }
 }
 
@@ -96,8 +131,6 @@ deleteTaskBtns.map((deleteBtn) => {
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
@@ -141,7 +174,7 @@ fetch("../json/posts.json")
 
         for (let i = 0; i < posts.length; i++) {
             postsBullets[i].addEventListener("click", () => {
-                postsBullets.forEach((bullet) => bullet.classList.remove("active"));
+                postsBullets.forEach((bullet) => (bullet.classList.remove("active")));
                 postsBullets[i].classList.add("active");
                 arrowChecker(0, prevPostArrow);
                 arrowChecker(postsBullets.length - 1, nextPostArrow);
@@ -161,4 +194,56 @@ fetch("../json/posts.json")
 
 fetch("https://api.github.com/users/PhilopaterHany")
     .then((response) => response.json())
-    .then((user) => githubFollowersSpan.innerHTML = `${user.followers} Followers`);
+    .then((user) => (githubFollowersSpan.innerHTML = `${user.followers} Followers`));
+
+function projectStatus(progress) {
+    if (progress == -1) {
+        return "rejected";
+    } else if (progress == 0) {
+        return "pending";
+    } else if (progress == 100) {
+        return "completed";
+    }
+    return "in progress";
+}
+
+fetch("../json/projects.json")
+    .then((response) => response.json())
+    .then((projects) => {
+        projects.forEach((project) => {
+            let projHolder = document.createElement("tr");
+            tableBody.appendChild(projHolder);
+
+            let projName = document.createElement("td");
+            projName.innerHTML = project.name;
+            projHolder.appendChild(projName);
+
+            let startDate = document.createElement("td");
+            startDate.innerHTML = project.startDate;
+            projHolder.appendChild(startDate);
+
+            let client = document.createElement("td");
+            client.innerHTML = project.client;
+            projHolder.appendChild(client);
+
+            let profit = document.createElement("td");
+            profit.innerHTML = project.profit + "$";
+            projHolder.appendChild(profit);
+
+            let team = document.createElement("td");
+            for (let i = 0; i < project.team.length; i++) {
+                let member = document.createElement("img");
+                member.src = project.team[i];
+                member.alt = `Team Member ${project.team[i].slice(project.team[i].indexOf("-") + 1, project.team[i].indexOf("."))}`;
+                team.appendChild(member);
+            }
+            projHolder.appendChild(team);
+
+            let status = document.createElement("td");
+            let word = document.createElement("span");
+            word.innerHTML = projectStatus(project.progress);
+            word.className = projectStatus(project.progress).replace(" ", "-");
+            status.appendChild(word);
+            projHolder.appendChild(status);
+        });
+    });

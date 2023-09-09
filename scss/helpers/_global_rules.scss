@@ -20,6 +20,22 @@
 }
 body {
     font-family: "Open Sans", sans-serif;
+    .swal2-success-ring {
+        border-color: rgba($color: $green-color, $alpha: 0.75);
+    }
+    div:where(.swal2-icon).swal2-success [class^="swal2-success-line"] {
+        background-color: $green-color;
+    }
+    .swal2-confirm.swal2-styled {
+        background-color: $blue-color;
+    }
+    .swal2-cancel.swal2-styled {
+        background-color: $red-color;
+    }
+    div:where(.swal2-icon).swal2-warning {
+        color: $orange-color;
+        border-color: rgba($color: $orange-color, $alpha: 0.75);
+    }
     &[data-theme="dark"] {
         * {
             box-shadow: unset !important;
@@ -43,6 +59,30 @@ body {
             &:checked {
                 + .toggle-switch {
                     background-color: $blue-color !important;
+                }
+            }
+        }
+        div.swal2-container.swal2-center.swal2-backdrop-show {
+            .swal2-modal {
+                background-color: $dark-mode-black;
+                .swal2-success-ring {
+                    border-color: rgba($color: $green-color, $alpha: 0.75);
+                }
+                div:where(.swal2-icon).swal2-success
+                    [class^="swal2-success-line"] {
+                    background-color: $green-color;
+                }
+                .swal2-title,
+                .swal2-html-container {
+                    color: $dark-mode-white;
+                }
+                .swal2-confirm.swal2-styled {
+                    background-color: $blue-color;
+                }
+                div.swal2-success-fix[style],
+                div.swal2-success-circular-line-right[style],
+                div.swal2-success-circular-line-left[style] {
+                    background-color: transparent !important;
                 }
             }
         }

@@ -88,7 +88,7 @@ fetch("../json/friends.json")
             dateBtns.appendChild(btns);
 
             let profileBtn = document.createElement("a");
-            profileBtn.href = "profile.html";
+            profileBtn.href = "#";
             profileBtn.className = "profile-button";
             profileBtn.innerHTML = "Profile";
             btns.appendChild(profileBtn);

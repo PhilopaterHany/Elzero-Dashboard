@@ -11,6 +11,7 @@ This is the source code of [Elzero Dashboard By Osama Elzero](https://elzero.org
 -   [My process](#my-process)
     -   [Built with](#built-with)
     -   [Style](#styles)
+    -   [Data Samples](#data-samples)
     -   [Useful resources](#useful-resources)
 -   [Author](#author)
 
@@ -22,7 +23,8 @@ Download the files from `main` branch, extract the files from the `zip` file, ru
 
 ### Screenshots
 
-You can find all webpages screenshots in [design directory](https://github.com/PhilopaterHany/Elzero-Dashboard/tree/main/design/).
+All web page screenshots are in [design directory](https://github.com/PhilopaterHany/Elzero-Dashboard/tree/main/design/).
+Note: Those were the original design images, but I made a few changes and added some stuff.
 
 ### Links
 
@@ -66,10 +68,130 @@ You can find all webpages screenshots in [design directory](https://github.com/P
 #### Fonts
 
 -   Family: [Open Sans](https://fonts.google.com/specimen/Open+Sans)
--   Weights: 300, 400, 500, 600, 700, 800
+    -   Weight(s): 300, 400, 500, 600, 700, 800
 
 -   Family: [Cookie](https://fonts.google.com/specimen/Cookie)
--   Weights: 400
+    -   Weight(s): 400
+
+### Data Samples
+
+#### Courses Schema
+```json
+[
+    {
+        "instructor": "images/team-01.png",
+        "cover": "images/course-01.jpg",
+        "name": "Mastering Web Design",
+        "description": "Master The Art Of Web Designing And Mocking, Prototyping And Creating Web Design Architecture.",
+        "participants": "729",
+        "price": "165"
+    }
+]
+```
+#### Files Schema
+```json
+[
+    {
+        "name": "January Report.pdf",
+        "icon": "images/pdf.svg",
+        "uploader": "Arthur Morgan",
+        "date": "05/01/2021",
+        "size": "5.21 MB"
+    }
+]
+```
+#### Friends Schema
+```json
+[
+    {
+        "name": "Arthur Morgan",
+        "job": "JavaScript Developer",
+        "image": "images/friend-01.jpg",
+        "friends": "342",
+        "projects": "74",
+        "articles": "821",
+        "phoneNumber": "+201209990000",
+        "email": "philopaterdev@gmail.com",
+        "joinDate": "11/04/2020",
+        "vip": true
+    }
+]
+```
+#### Posts Schema
+```json
+[
+    {
+        "image": "images/team-05.png",
+        "name": "Sister Calderón",
+        "time": "5 Days Ago",
+        "content": "Take a gamble that love exists, and do a loving act.",
+        "likes": "186.4k",
+        "comments": "92.5k"
+    }
+]
+```
+#### Profile Schema
+```json
+{
+    "avatar": {
+        "image": "images/avatar.png",
+        "nickName": "Rafay",
+        "level": "17",
+        "xpProgress": "70",
+        "rating": "550"
+    },
+    "general": {
+        "fullName": "Philopater Hany",
+        "gender": "Male",
+        "country": "Egypt"
+    },
+    "personal": {
+        "email": "philopaterdev@gmail.com",
+        "phoneNumber": "+201220009999",
+        "birthdate": "04/08/2005"
+    },
+    "job": {
+        "title": "Full-Stack Developer",
+        "progLang": "JavaScript",
+        "experience": "+15"
+    },
+    "billing": {
+        "paymentMethod": "Paypal",
+        "plan": "Basic",
+        "subscription": "Monthly"
+    },
+    "skills": [
+        ["HTML", "Pug.js"],
+        ["CSS", "SCSS", "Bootstrap"],
+        ["JavaScript", "TypeScript"],
+        ["React.js", "Angular.js"],
+        ["Gulp.js", "Jest"],
+        ["Python", "Flask"],
+        ["C++", "PHP"]
+    ]
+}
+```
+#### Projects Schema
+```json
+[
+    {
+        "name": "Elzero Dashboard",
+        "client": "Elzero",
+        "description": "Elzero Dashboard Project Design And Programming And Hosting.",
+        "startDate": "15/10/2022",
+        "team": [
+            "images/team-01.png",
+            "images/team-02.png",
+            "images/team-03.png",
+            "images/team-04.png",
+            "images/team-05.png"
+        ],
+        "keywords": ["Programming", "Design", "Hosting", "Marketing"],
+        "progress": "58",
+        "profit": "2500"
+    }
+]
+```
 
 ### Useful Resources
 
@@ -84,5 +206,6 @@ You can find all webpages screenshots in [design directory](https://github.com/P
 
 -   Website - Portfolio Is Coming Out Soon!
 -   Twitter - [@PhilopaterHany4](https://www.twitter.com/PhilopaterHany4/)
+-   Linkedin - [@phth](https://www.linkedin.com/in/phth/)
 -   Facebook - [Philopater Hany](https://www.facebook.com/philopater.hany.3)
 -   Discord - [#8178](https://discord.com/#8178/)

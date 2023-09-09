@@ -169,6 +169,9 @@ body[data-theme="dark"] {
         background-color: $dark-mode-background;
         header {
             background-color: $dark-mode-black;
+            > i {
+                color: $dark-mode-white;
+            }
             .search {
                 input {
                     color: $dark-mode-white;

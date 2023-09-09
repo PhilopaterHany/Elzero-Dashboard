@@ -49,6 +49,7 @@
                 }
                 img {
                     @include circleImage(40px);
+                    border: none;
                 }
             }
         }

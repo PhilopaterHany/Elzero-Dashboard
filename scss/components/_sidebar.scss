@@ -28,6 +28,7 @@
         color: $red-color;
         align-self: flex-end;
         width: fit-content;
+        background-color: transparent;
         font-size: 24px;
         cursor: pointer;
         @media (min-width: #{$mobile-view + 1}) {
@@ -44,7 +45,7 @@
         &::after {
             content: "";
             position: absolute;
-            top: 130%;
+            top: 100%;
             left: 50%;
             background-color: $black-color;
             @include transform(translate(-50%, -50%));
