@@ -23,19 +23,34 @@ openSidebar.addEventListener("click", () => {
     openSidebar.style.display = "none";
     sidebarOverlay.style.position = "fixed";
 });
+window.addEventListener("mouseup", function (e) {
+    if (e.target != notifList && e.target.parentNode != notifList) notifList.classList.remove("show");
+});
 
-if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.body.setAttribute("data-theme", "dark");
-    themeCheckBox.checked = true;
-} else {
-    document.body.setAttribute("data-theme", "light");
-    themeCheckBox.checked = false;
-}
+window.addEventListener("load", () => {
+    if (localStorage.theme) {
+        if (localStorage.theme === "dark") {
+            document.body.setAttribute("data-theme", "dark");
+            themeCheckBox.checked = true;
+        } else {
+            document.body.setAttribute("data-theme", "light");
+            themeCheckBox.checked = false;
+        }
+    } else {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.body.setAttribute("data-theme", "dark");
+            themeCheckBox.checked = true;
+            localStorage.theme = "dark";
+        } else {
+            document.body.setAttribute("data-theme", "light");
+            themeCheckBox.checked = false;
+            localStorage.theme = "light";
+        }
+    }
+});
 themeCheckBox.addEventListener("change", (cb) => {
-    document.body.setAttribute(
-        "data-theme",
-        cb.target.checked ? "dark" : "light"
-    );
+    document.body.setAttribute("data-theme", cb.target.checked ? "dark" : "light");
+    cb.target.checked ? (localStorage.theme = "dark") : (localStorage.theme = "light");
 });
 
 AOS.init({ duration: "700" });
