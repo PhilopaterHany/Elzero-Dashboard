@@ -75,11 +75,11 @@ mixin reminder(title, dateTime)
             p #{title}
             span #{dateTime}
 
-mixin social-media(icon, account, word, link)
+mixin social-media(icon, account, word)
     .social-media-account(class=account)
         i(class=icon)
         span #{word}
-        a(href=link, target="_blank") View
+        a(href="", target="_blank") View
 
 mixin plans-item(feature, status)
     li
@@ -119,7 +119,7 @@ mixin radio-icon-word(word, icon, check)
             i(class=icon)
             | #{word}
 
-mixin social-input(name, icon,val)
+mixin social-input(name, icon)
     li
         i(class=name.toLowerCase() + " " + icon)
-        input(type="text", value=val, readonly)
+        input(type="text", readonly)

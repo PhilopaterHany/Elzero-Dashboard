@@ -400,8 +400,8 @@
                     }
                     &.current {
                         &::after {
-                            animation: fade-out 0.8s infinite alternate;
                             -webkit-animation: fade-out 0.8s infinite alternate;
+                            animation: fade-out 0.8s infinite alternate;
                         }
                     }
                     @media (max-width: $mobile-view) {
@@ -684,8 +684,8 @@
                                         }
                                     }
                                     &:hover {
-                                        filter: unset !important;
                                         -webkit-filter: unset !important;
+                                        filter: unset !important;
                                     }
                                 }
                             }
@@ -820,8 +820,11 @@ body[data-theme="dark"] {
             .responsive-table {
                 table {
                     thead {
-                        td {
-                            background-color: $dark-mode-grey;
+                        tr {
+                            th {
+                                padding: 10px;
+                                background-color: $dark-mode-grey;
+                            }
                         }
                     }
                     tbody {

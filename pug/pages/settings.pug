@@ -26,10 +26,10 @@ html(lang="en")
                         +box-header("fa-solid fa-id-card-clip", "General Info", "General Information about your account")
                         div
                             label(for="first-name") First Name
-                            input#first-name(type="text", value="Philopater", readonly="readonly")
+                            input#first-name(type="text", readonly="readonly")
                         div
                             label(for="last-name") Last Name
-                            input#last-name(type="text", value="Hany", readonly="readonly")
+                            input#last-name(type="text", readonly="readonly")
                         div
                             label(for="email-input") Email
                             input.disabled#email-input(type="email", disabled)
@@ -51,8 +51,8 @@ html(lang="en")
                     .box.social-media(data-aos="fade-up-left")
                         +box-header("fa-solid fa-people-arrows", "Social Media", "Your social media accounts")
                         ul
-                            each item in [["Facebook", "fa-brands fa-facebook-f", "philopater.hany.3"], ["Github", "fa-brands fa-github", "PhilopaterHany"], ["Twitter", "fa-brands fa-twitter", "PhilopaterHany4"], ["Linkedin", "fa-brands fa-linkedin-in", "phth"]]
-                                +social-input(item[0], item[1], item[2])
+                            each item in [["Facebook", "fa-brands fa-facebook-f"], ["Github", "fa-brands fa-github"], ["Twitter", "fa-brands fa-twitter"], ["Linkedin", "fa-brands fa-linkedin-in"]]
+                                +social-input(item[0], item[1])
                             li
                                 button(type="button") Change
                     .box.widgets(data-aos="flip-up")

@@ -6,11 +6,14 @@ const closeSidebar = document.getElementById("close-sidebar");
 const openSidebar = document.getElementById("open-sidebar");
 let themeCheckBox = document.querySelector("#sidebar-check input");
 
-notifBtn.addEventListener("click", () => {
-    notifList.classList.toggle("show");
-});
+notifBtn.addEventListener("click", () => notifList.classList.toggle("show"));
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") notifList.classList.remove("show");
+});
+window.addEventListener("mouseup", function (e) {
+    if (e.target != notifList && e.target.parentNode != notifList) {
+        notifList.classList.remove("show");
+    }
 });
 
 closeSidebar.addEventListener("click", () => {
@@ -22,9 +25,6 @@ openSidebar.addEventListener("click", () => {
     sidebar.classList.add("show");
     openSidebar.style.display = "none";
     sidebarOverlay.style.position = "fixed";
-});
-window.addEventListener("mouseup", function (e) {
-    if (e.target != notifList && e.target.parentNode != notifList) notifList.classList.remove("show");
 });
 
 window.addEventListener("load", () => {

@@ -9,7 +9,8 @@
     "general": {
         "fullName": "Philopater Hany",
         "gender": "Male",
-        "country": "Egypt"
+        "countryName": "Egypt",
+        "countryCode": "EG"
     },
     "personal": {
         "email": "philopaterdev@gmail.com",
@@ -17,7 +18,7 @@
         "birthdate": "04/08/2005"
     },
     "job": {
-        "title": "Full-Stack Developer",
+        "title": "Front-End Developer",
         "progLang": "JavaScript",
         "experience": "+15"
     },
@@ -34,5 +35,11 @@
         ["Gulp.js", "Jest"],
         ["Python", "Flask"],
         ["C++", "PHP"]
-    ]
+    ],
+    "social": {
+        "facebook": "philopater.hany.3",
+        "twitter": "PhilopaterHany4",
+        "linkedin": "phth",
+        "github": "PhilopaterHany"
+    }
 }

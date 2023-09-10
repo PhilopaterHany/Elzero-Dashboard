@@ -33,7 +33,7 @@ html(lang="en")
                         a(href="profile.html") Profile
                     .box.draft(data-aos="fade-down-left")
                         +box-header("fa-solid fa-pen-ruler", "Quick Draft", "Write a draft for your ideas")
-                        form
+                        form(name="draft-form")
                             input(type="text", placeholder="Title")
                             textarea(name="draft-content", placeholder="Your thought")
                             button(type="button") Save
@@ -94,20 +94,20 @@ html(lang="en")
                                 span#post-comments
                     .box.social-media(data-aos="flip-down")
                         +box-header("fa-solid fa-people-arrows", "Social Media Stats")
-                        each item in [["fa-brands fa-facebook-f", "facebook", "2M Likes", "https://facebook.com/philopater.hany.3/"], ["fa-brands fa-github", "github", "", "https://github.com/PhilopaterHany"], ["fa-brands fa-twitter", "twitter", "500k Followers", "https://twitter.com/PhilopaterHany4/"], ["fa-solid fa-envelope", "gmail", "8k Emails", "mailto:philopaterdev@gmail.com"],["fa-brands fa-linkedin-in", "linkedin", "3k Connections", "https://www.linkedin.com/in/phth/"]]
-                            +social-media(item[0], item[1], item[2], item[3])
+                        each item in [["fa-brands fa-facebook-f", "facebook", "2M Likes"], ["fa-brands fa-github", "github", ""], ["fa-brands fa-twitter", "twitter", "500k Followers"], ["fa-solid fa-envelope", "gmail", "8k Emails"],["fa-brands fa-linkedin-in", "linkedin", "3k Connections"]]
+                            +social-media(item[0], item[1], item[2])
                     .box.projects-table(data-aos="zoom-in-up")
                         +box-header("fa-solid fa-diagram-project", "Projects")
                         .responsive-table
                             table
                                 thead
                                     tr
-                                        td Name
-                                        td Start Date
-                                        td Client
-                                        td Profit
-                                        td Team
-                                        td Status
+                                        th Name
+                                        th Start Date
+                                        th Client
+                                        th Profit
+                                        th Team
+                                        th Status
                                 tbody
         .sidebar-overlay
 

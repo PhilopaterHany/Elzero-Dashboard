@@ -90,6 +90,14 @@
                 @media (max-width: $mobile-view) {
                     min-width: unset;
                 }
+                #country {
+                    position: relative;
+                    img {
+                        position: absolute;
+                        top: -2px;
+                        left: 120%;
+                    }
+                }
                 label.switch {
                     .toggle-checkbox {
                         &:checked {

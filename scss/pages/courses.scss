@@ -11,8 +11,14 @@
         position: relative;
         padding: 0;
         overflow: hidden;
+        &:hover {
+            .cover {
+                @include transform(scale(1.1));
+            }
+        }
         .cover {
             width: 100%;
+            @include transDur($duration * 1.25, "ease-in-out");
         }
         .instructor {
             @include circleImage(64px);

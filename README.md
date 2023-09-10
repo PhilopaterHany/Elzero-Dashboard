@@ -68,6 +68,7 @@ Note: Those were the original design images, but I made a few changes and added 
 #### Fonts
 
 -   Family: [Open Sans](https://fonts.google.com/specimen/Open+Sans)
+
     -   Weight(s): 300, 400, 500, 600, 700, 800
 
 -   Family: [Cookie](https://fonts.google.com/specimen/Cookie)
@@ -76,6 +77,7 @@ Note: Those were the original design images, but I made a few changes and added 
 ### Data Samples
 
 #### Courses Schema
+
 ```json
 [
     {
@@ -88,7 +90,9 @@ Note: Those were the original design images, but I made a few changes and added 
     }
 ]
 ```
+
 #### Files Schema
+
 ```json
 [
     {
@@ -100,7 +104,9 @@ Note: Those were the original design images, but I made a few changes and added 
     }
 ]
 ```
+
 #### Friends Schema
+
 ```json
 [
     {
@@ -117,7 +123,9 @@ Note: Those were the original design images, but I made a few changes and added 
     }
 ]
 ```
+
 #### Posts Schema
+
 ```json
 [
     {
@@ -130,7 +138,9 @@ Note: Those were the original design images, but I made a few changes and added 
     }
 ]
 ```
+
 #### Profile Schema
+
 ```json
 {
     "avatar": {
@@ -143,7 +153,8 @@ Note: Those were the original design images, but I made a few changes and added 
     "general": {
         "fullName": "Philopater Hany",
         "gender": "Male",
-        "country": "Egypt"
+        "countryName": "Egypt",
+        "countryCode": "EG"
     },
     "personal": {
         "email": "philopaterdev@gmail.com",
@@ -151,7 +162,7 @@ Note: Those were the original design images, but I made a few changes and added 
         "birthdate": "04/08/2005"
     },
     "job": {
-        "title": "Full-Stack Developer",
+        "title": "Front-End Developer",
         "progLang": "JavaScript",
         "experience": "+15"
     },
@@ -168,27 +179,29 @@ Note: Those were the original design images, but I made a few changes and added 
         ["Gulp.js", "Jest"],
         ["Python", "Flask"],
         ["C++", "PHP"]
-    ]
+    ],
+    "social": {
+        "facebook": "philopater.hany.3",
+        "twitter": "PhilopaterHany4",
+        "linkedin": "phth",
+        "github": "PhilopaterHany"
+    }
 }
 ```
+
 #### Projects Schema
+
 ```json
 [
     {
-        "name": "Elzero Dashboard",
-        "client": "Elzero",
-        "description": "Elzero Dashboard Project Design And Programming And Hosting.",
-        "startDate": "15/10/2022",
-        "team": [
-            "images/team-01.png",
-            "images/team-02.png",
-            "images/team-03.png",
-            "images/team-04.png",
-            "images/team-05.png"
-        ],
-        "keywords": ["Programming", "Design", "Hosting", "Marketing"],
-        "progress": "58",
-        "profit": "2500"
+        "name": "Social Media App",
+        "client": "SocialTech Innovations",
+        "description": "Create a cutting-edge social media app, it will include features like user profiles, news feeds, multimedia sharing, and real-time messaging.",
+        "startDate": "24/12/2022",
+        "team": ["images/team-01.png", "images/team-05.png"],
+        "keywords": ["Programming", "Design"],
+        "progress": "87",
+        "profit": "1500"
     }
 ]
 ```

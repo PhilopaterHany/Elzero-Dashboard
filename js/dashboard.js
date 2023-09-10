@@ -22,6 +22,13 @@ const counterElements = Array.from(document.querySelectorAll(".box.tickets .tick
 const progress = document.querySelector(".box.targets");
 const progressSpans = Array.from(document.querySelectorAll(".box.targets .progress > span"));
 const tableBody = document.querySelector("table tbody");
+const socialMediaLinks = {
+    facebook: "https://facebook.com/",
+    github: "https://github.com/",
+    twitter: "https://twitter.com/",
+    gmail: "mailto:",
+    linkedin: "https://www.linkedin.com/in/",
+};
 let countStarted = false;
 let progressStarted = false;
 
@@ -29,9 +36,13 @@ fetch("../json/profile.json")
     .then((response) => response.json())
     .then((data) => {
         let userName = document.createElement("p");
-        userName.innerHTML = data.general.fullName.slice(0, data.general.fullName.indexOf(" "));
-        // userName.innerHTML = data.avatar.nickName;
+        // userName.innerHTML = data.general.fullName.slice(0, data.general.fullName.indexOf(" "));
+        userName.innerHTML = data.avatar.nickName;
         welcomeBoxHeader.appendChild(userName);
+
+        for (const key in socialMediaLinks) {
+            document.querySelector(`.social-media-account.${key} a`).href = `${socialMediaLinks[key]}${data.social[key] || data.personal.email}`;
+        }
     });
 window.addEventListener("load", () => {
     if (localStorage.draft) {
@@ -65,7 +76,9 @@ draftBtn.addEventListener("click", () => {
 
 window.addEventListener("scroll", () => {
     if (window.scrollY >= progress.offsetTop - 300) {
-        if (!progressStarted) progressSpans.forEach((prog) => (prog.style.width = prog.dataset.width));
+        if (!progressStarted) {
+            progressSpans.forEach((prog) => (prog.style.width = prog.dataset.width));
+	}
         progressStarted = true;
     }
 });
@@ -174,7 +187,7 @@ fetch("../json/posts.json")
 
         for (let i = 0; i < posts.length; i++) {
             postsBullets[i].addEventListener("click", () => {
-                postsBullets.forEach((bullet) => (bullet.classList.remove("active")));
+                postsBullets.forEach((bullet) =>bullet.classList.remove("active"));
                 postsBullets[i].classList.add("active");
                 arrowChecker(0, prevPostArrow);
                 arrowChecker(postsBullets.length - 1, nextPostArrow);
