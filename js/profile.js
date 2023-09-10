@@ -16,6 +16,8 @@ const paymentMethod = document.getElementById("payment-method");
 const plan = document.getElementById("plan");
 const subscription = document.getElementById("subscription");
 const skillsUl = document.querySelector(".skills-wrapper");
+const activitiesParag = document.querySelector(".activities .box-header p");
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 fetch("json/profile.json")
     .then((response) => response.json())
@@ -28,11 +30,13 @@ fetch("json/profile.json")
 
         fullName.innerHTML = data.general.fullName;
         gender.innerHTML = data.general.gender;
-        country.innerHTML = data.general.country;
+        country.innerHTML = `${data.general.countryName} <img src="https://flagsapi.com/${data.general.countryCode}/flat/24.png">`;
 
         email.innerHTML = data.personal.email;
-        phone.innerHTML = data.personal.phoneNumber;
-        birthdate.innerHTML = data.personal.birthdate;
+        phone.innerHTML = data.personal.phoneNumber.replace(/(\+\d{1,2})(\d{3})(\d{3})(\d{3})/, "($1) $2 $3 $4");
+
+        let dateComponents = data.personal.birthdate.split("/");
+        birthdate.innerHTML = `${parseInt(dateComponents[0], 10)} ${monthNames[parseInt(dateComponents[1], 10) - 1]} ${dateComponents[2]} (${new Date().getFullYear() - dateComponents[2]} yo)`;
 
         userJobTitle.innerHTML = data.job.title;
         progLang.innerHTML = data.job.progLang;
@@ -51,4 +55,6 @@ fetch("json/profile.json")
             }
             skillsUl.appendChild(li);
         }
+
+        activitiesParag.innerHTML += data.avatar.nickName;
     });
