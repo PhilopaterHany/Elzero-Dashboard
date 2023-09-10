@@ -33,7 +33,7 @@ fetch("json/profile.json")
         country.innerHTML = `${data.general.countryName} <img src="https://flagsapi.com/${data.general.countryCode}/flat/24.png">`;
 
         email.innerHTML = data.personal.email;
-        phone.innerHTML = data.personal.phoneNumber.replace(/(\+\d{1,2})(\d{3})(\d{3})(\d{3})/, "($1) $2 $3 $4");
+        phone.innerHTML = data.personal.phoneNumber.replace(/(\+\d{2})(\d{3})(\d{3})(\d{4})/, "($1) $2 $3 $4");
 
         let dateComponents = data.personal.birthdate.split("/");
         birthdate.innerHTML = `${parseInt(dateComponents[0], 10)} ${monthNames[parseInt(dateComponents[1], 10) - 1]} ${dateComponents[2]} (${new Date().getFullYear() - dateComponents[2]} yo)`;
