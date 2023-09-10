@@ -1,8 +1,8 @@
 [
     {
-        "name": "Elzero Dashboard",
-        "client": "Elzero",
-        "description": "Elzero Dashboard Project Design And Programming And Hosting.",
+        "name": "E-commerce App Development",
+        "client": "AFS Company",
+        "description": "Develop a feature-rich mobile application for online shopping that offers a seamless and user-friendly shopping experience.",
         "startDate": "15/10/2022",
         "team": [
             "images/team-01.png",
@@ -16,9 +16,9 @@
         "profit": "2500"
     },
     {
-        "name": "Philo Dashboard",
-        "client": "Abbas",
-        "description": "Philo Dashboard Project Design And Programming And Hosting.",
+        "name": "Restaurant Website Redesign",
+        "client": "WTT Restaurant",
+        "description": "Design a website for a restaurant to enhance its visual appeal, usability, and performance.",
         "startDate": "04/08/2023",
         "team": ["images/team-05.png"],
         "keywords": ["Programming", "Design", "Marketing"],
@@ -26,9 +26,47 @@
         "profit": "3400"
     },
     {
-        "name": "Edge Dashboard",
-        "client": "Abbas",
-        "description": "Edge Dashboard Project Design And Programming And Hosting.",
+        "name": "Mobile Game Development",
+        "client": "Game Studios Inc.",
+        "description": "Create an engaging and addictive mobile game. The game will feature stunning graphics, interactive gameplay, in-app purchases, and social sharing options.",
+        "startDate": "26/04/2021",
+        "team": [
+            "images/team-01.png",
+            "images/team-02.png",
+            "images/team-05.png"
+        ],
+        "keywords": ["Design"],
+        "progress": "0",
+        "profit": "950"
+    },
+    {
+        "name": "Website Optimization",
+        "client": "Tech Solutions Ltd.",
+        "description": "This project involves code refactoring, image compression, content caching, and server-side improvements. The goal is to provide a lightning-fast user experience, improve SEO rankings, and reduce bounce rates.",
+        "startDate": "05/03/2023",
+        "team": ["images/team-04.png", "images/team-05.png"],
+        "keywords": ["Programming", "Design", "Hosting", "Marketing"],
+        "progress": "42",
+        "profit": "1400"
+    },
+    {
+        "name": "Data Analytics Dashboard",
+        "client": "Data Insights Co.",
+        "description": "The dashboard will integrate with various data sources, offer customizable visualizations, support real-time data updates, and provide insightful data-driven recommendations.",
+        "startDate": "31/07/2023",
+        "team": [
+            "images/team-02.png",
+            "images/team-03.png",
+            "images/team-05.png"
+        ],
+        "keywords": ["Design", "Marketing"],
+        "progress": "14",
+        "profit": "850"
+    },
+    {
+        "name": "Custom CRM System",
+        "client": "LMV Corporation",
+        "description": "Design and implement a CRM system. This comprehensive CRM solution will centralize customer data, streamline communication, automate sales processes, and provide insightful analytics.",
         "startDate": "11/06/2023",
         "team": [
             "images/team-01.png",
@@ -42,67 +80,29 @@
         "profit": "2250"
     },
     {
-        "name": "Chatting Application",
-        "client": "Abbas",
-        "description": "Chatting Application Project Design.",
-        "startDate": "26/04/2021",
-        "team": [
-            "images/team-01.png",
-            "images/team-02.png",
-            "images/team-05.png"
-        ],
-        "keywords": ["Design"],
-        "progress": "0",
-        "profit": "950"
-    },
-    {
-        "name": "Ahmed Dashboard",
-        "client": "Abbas",
-        "description": "Ahmed Dashboard Project Design And Programming And Hosting.",
-        "startDate": "05/03/2023",
-        "team": ["images/team-04.png", "images/team-05.png"],
-        "keywords": ["Programming", "Design", "Hosting", "Marketing"],
-        "progress": "42",
-        "profit": "1400"
-    },
-    {
-        "name": "Mohamed Application",
-        "client": "Abbas",
-        "description": "Mohamed Application Project Design.",
-        "startDate": "31/07/2023",
-        "team": [
-            "images/team-02.png",
-            "images/team-03.png",
-            "images/team-05.png"
-        ],
-        "keywords": ["Design", "Marketing"],
-        "progress": "14",
-        "profit": "850"
-    },
-    {
-        "name": "Ashraf Dashboard",
-        "client": "Abbas",
-        "description": "Ashraf Dashboard Project Design And Programming And Hosting.",
+        "name": "E-learning Platform",
+        "client": "Academy Learning",
+        "description": "This platform will host courses, quizzes, assignments, and a student progress tracking system. It will offer both self-paced and instructor-led courses to enhance learning opportunities and accessibility.",
         "startDate": "07/12/2022",
         "team": ["images/team-02.png", "images/team-05.png"],
         "keywords": ["Programming", "Design", "Hosting", "Marketing"],
-        "progress": "83",
+        "progress": "100",
         "profit": "700"
     },
     {
-        "name": "Mohamed Portal",
-        "client": "Abbas",
-        "description": "Mohamed Portal Project Design And Programming.",
+        "name": "Social Media App",
+        "client": "SocialTech Innovations",
+        "description": "Create a cutting-edge social media app, it will include features like user profiles, news feeds, multimedia sharing, and real-time messaging.",
         "startDate": "24/12/2022",
         "team": ["images/team-01.png", "images/team-05.png"],
         "keywords": ["Programming", "Design"],
-        "progress": "78",
+        "progress": "87",
         "profit": "1500"
     },
     {
-        "name": "Academy Portal",
-        "client": "Abbas",
-        "description": "Academy Portal Project Design And Programming.",
+        "name": "AI Chatbot Integration",
+        "client": "AI Solutions Ltd.",
+        "description": "Integrate an advanced AI chatbot into an existing platform. The chatbot will provide intelligent, 24/7 customer support, answer frequently asked questions, and assist with user inquiries. It aims to enhance user satisfaction and streamline support processes.",
         "startDate": "11/06/2022",
         "team": [
             "images/team-01.png",
@@ -110,7 +110,7 @@
             "images/team-03.png"
         ],
         "keywords": ["Programming", "Design"],
-        "progress": "77",
+        "progress": "23",
         "profit": "1800"
     }
 ]
