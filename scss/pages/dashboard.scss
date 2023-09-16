@@ -681,6 +681,7 @@
                                 }
                                 span {
                                     cursor: default !important;
+                                    text-transform: capitalize;
                                     @each $class, $colour in $buttons-status {
                                         &.#{$class} {
                                             @include button($colour);
