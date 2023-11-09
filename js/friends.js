@@ -99,4 +99,4 @@ fetch("json/friends.json")
             removeBtn.innerHTML = "Remove";
             btns.appendChild(removeBtn);
         });
-    });
+    }).catch((error) => console.error("Fetch error:", error));
