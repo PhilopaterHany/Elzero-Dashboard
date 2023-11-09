@@ -23,8 +23,11 @@ html(lang="en")
                                 i.fa-solid.fa-star
                             - }
                         span#rating
+                        button#download-button
+                            | Download My Data
+                            i.fa-solid.fa-download
                     .personal-details
-                        .box(data-aos="fade-down-left")
+                        .box(data-aos="fade-up-right")
                             h4 General Information
                             div
                                 span Full Name: 
@@ -37,7 +40,7 @@ html(lang="en")
                                 span#country
                             div
                                 +switch-toggle(true)
-                        .box(data-aos="fade-down-left")
+                        .box(data-aos="fade-up-right")
                             h4 Personal Information
                             div
                                 span Email: 
@@ -50,7 +53,7 @@ html(lang="en")
                                 span#birthdate
                             div
                                 +switch-toggle(false)
-                        .box(data-aos="fade-down-left")
+                        .box(data-aos="fade-up-right")
                             h4 Job Information
                             div
                                 span Title: 
@@ -63,7 +66,7 @@ html(lang="en")
                                 span#experience
                             div
                                 +switch-toggle(true)
-                        .box(data-aos="fade-down-left")
+                        .box(data-aos="fade-down-right")
                             h4 Billing Information
                             div
                                 span Payment Method: 
@@ -80,7 +83,7 @@ html(lang="en")
                     .box.skills(data-aos="zoom-in-right")
                         +box-header("fa-solid fa-screwdriver-wrench", "My Skills", "Complete skills list")
                         ul.skills-wrapper
-                    .box.activities(data-aos="zoom-in-left")
+                    .box.activities(data-aos="zoom-in-right")
                         +box-header("fa-solid fa-tower-observation", "Latest Activities", "Latest activities done by ")
                         ul
                             li

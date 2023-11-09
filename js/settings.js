@@ -14,7 +14,8 @@ window.addEventListener("load", () => {
     } else {
 	fetch("../json/profile.json")
         .then((response) => response.json())
-        .then((data) => emailInput.value = data.personal.email);
+        .then((data) => emailInput.value = data.personal.email)
+        .catch((error) => console.error("Fetch error:", error));
     }
 });
 
@@ -28,7 +29,7 @@ fetch("../json/profile.json")
         githubInputUserName.value = data.social.github;
         twitterInputUserName.value = data.social.twitter;
         linkedinInputUserName.value = data.social.linkedin;
-    });
+    }).catch((error) => console.error("Fetch error:", error));
 
 changeEmailBtn.addEventListener("click", () => {
     emailInput.disabled = false;

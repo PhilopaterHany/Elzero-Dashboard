@@ -43,7 +43,8 @@ fetch("../json/profile.json")
         for (const key in socialMediaLinks) {
             document.querySelector(`.social-media-account.${key} a`).href = `${socialMediaLinks[key]}${data.social[key] || data.personal.email}`;
         }
-    });
+    }).catch((error) => console.error("Fetch error:", error));
+
 window.addEventListener("load", () => {
     if (localStorage.draft) {
         let stringifiedDraft = localStorage.getItem("draft");
@@ -52,9 +53,8 @@ window.addEventListener("load", () => {
         draftTxt.value = draftObject.text;
     }
 });
+
 draftBtn.addEventListener("click", () => {
-    console.log(draftTitle.value);
-    console.log(draftTxt.value);
     if (draftTitle.value == "" || draftTxt.value == "") {
         Swal.fire({
             icon: "error",
@@ -89,6 +89,7 @@ function startCount(ele) {
         if (ele.textContent == ele.dataset.goal) clearInterval(count);
     }, 1500 / ele.dataset.goal);
 }
+
 window.addEventListener("scroll", () => {
     if (window.scrollY >= counters.offsetTop - 300) {
         if (!countStarted) counterElements.forEach((num) => startCount(num));
@@ -203,11 +204,12 @@ fetch("../json/posts.json")
         }
 
         postsBullets[0].click();
-    });
+    }).catch((error) => console.error("Fetch error:", error));
 
 fetch("https://api.github.com/users/PhilopaterHany")
     .then((response) => response.json())
-    .then((user) => (githubFollowersSpan.innerHTML = `${user.followers} Followers`));
+    .then((user) => (githubFollowersSpan.innerHTML = `${user.followers} Followers`))
+    .catch((error) => console.error("Fetch error:", error));
 
 function projectStatus(progress) {
     if (progress == -1) {
@@ -259,4 +261,4 @@ fetch("../json/projects.json")
             status.appendChild(word);
             projHolder.appendChild(status);
         });
-    });
+    }).catch((error) => console.error("Fetch error:", error));

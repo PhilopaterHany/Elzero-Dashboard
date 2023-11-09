@@ -43,4 +43,4 @@ fetch("../json/files.json")
             fileSize.innerHTML = file.size;
             fileInfo.appendChild(fileSize);
         });
-    });
+    }).catch((error) => console.error("Fetch error:", error));

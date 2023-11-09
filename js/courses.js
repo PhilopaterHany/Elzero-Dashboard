@@ -50,4 +50,4 @@ fetch("../json/courses.json")
             courseInfoSpan.innerHTML = "Course Info";
             courseData.appendChild(courseInfoSpan);
         });
-    });
+    }).catch((error) => console.error("Fetch error:", error));

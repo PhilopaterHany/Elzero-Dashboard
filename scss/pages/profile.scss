@@ -21,6 +21,7 @@
         }
         @media (max-width: $mobile-view) {
             border-bottom: 1px solid $light-grey-color;
+            height: 430px;
         }
         #avatar {
             width: 120px;
@@ -56,6 +57,33 @@
         }
         #rating {
             @extend #level;
+        }
+        #download-button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 15px;
+            color: $white-color;
+            background-color: $blue-alt-color;
+            cursor: pointer;
+            i {
+                margin-inline-start: 5px;
+            }
+            &:hover {
+                i {
+                    -webkit-animation-name: fa-bounce;
+                    animation-name: fa-bounce;
+                    -webkit-animation-delay: var(--fa-animation-delay, 0s);
+                    animation-delay: var(--fa-animation-delay, 0s);
+                    -webkit-animation-direction: var(--fa-animation-direction, normal);
+                    animation-direction: var(--fa-animation-direction, normal);
+                    -webkit-animation-duration: var(--fa-animation-duration, 1s);
+                    animation-duration: var(--fa-animation-duration, 1s);
+                    -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+                    animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+                    -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(.28,.84,.42,1));
+                    animation-timing-function: var(--fa-animation-timing, cubic-bezier(.28,.84,.42,1));
+                }
+            }
         }
     }
     .personal-details {

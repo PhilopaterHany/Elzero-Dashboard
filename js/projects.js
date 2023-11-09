@@ -77,4 +77,4 @@ fetch("../json/projects.json")
             profit.innerHTML = project.profit;
             infoDiv.appendChild(profit);
         });
-    });
+    }).catch((error) => console.error("Fetch error:", error));

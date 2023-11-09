@@ -18,6 +18,7 @@
         @include wrapper(200px, 200px);
         @media (max-width: $mobile-view) {
             margin: 0;
+            margin-bottom: 20px;
         }
         .file {
             position: relative;

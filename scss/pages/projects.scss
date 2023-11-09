@@ -73,11 +73,19 @@
         .info {
             padding-top: 15px;
             @include flexbox("space-between", "center");
+            @media (max-width: $mobile-view) {
+                flex-direction: column;
+                gap: 10px;
+            }
             .progress-container {
                 height: 12px;
                 width: 260px;
                 background-color: $light-grey-color;
                 @include bRad(6px);
+                @media (max-width: $mobile-view) {
+                    max-width: 100%;
+                    height: 16px;
+                }
                 span {
                     height: 100%;
                     padding-right: 5px;
@@ -91,11 +99,19 @@
             > span {
                 position: relative;
                 font-size: 14px;
+                @media (max-width: $mobile-view) {
+                    width: 100%;
+                    text-align: right;
+                    &::before {
+                        left: unset;
+                        right: 35px;
+                    }
+                }
                 &::before {
                     content: "\24";
                     position: absolute;
                     top: 0;
-                    left: -15px;
+                    left: -12px;
                     color: $green-color;
                 }
             }
