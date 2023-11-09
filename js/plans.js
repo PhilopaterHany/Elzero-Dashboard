@@ -18,6 +18,6 @@ fetch("json/profile.json")
                 plan.appendChild(link);
             }
         });
-    });
+    }).catch((error) => console.error("Fetch error:", error));
 
 plans.map((plan) => plan.setAttribute("data-aos", "zoom-in-down"));
