@@ -17,6 +17,7 @@ const plan = document.getElementById("plan");
 const subscription = document.getElementById("subscription");
 const skillsUl = document.querySelector(".skills-wrapper");
 const activitiesParag = document.querySelector(".activities .box-header p");
+const downloadButton = document.getElementById("download-button");
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 fetch("json/profile.json")
@@ -57,4 +58,87 @@ fetch("json/profile.json")
         }
 
         activitiesParag.innerHTML += data.avatar.nickName;
-    });
+    }).catch((error) => console.error("Fetch error:", error));
+
+downloadButton.addEventListener("click", () => {
+    fetch("json/profile.json")
+        .then((response) => response.json())
+        .then((data) => {
+            // Create a human-readable representation of the JSON data
+            const formattedData = `
+Avatar:
+
+    - Image: ${data.avatar.image}
+    - Nickname: ${data.avatar.nickName}
+    - Level: ${data.avatar.level}
+    - XP Progress: ${data.avatar.xpProgress}%
+    - Rating: ${data.avatar.rating}
+
+
+
+General:
+
+    - Full Name: ${data.general.fullName}
+    - Gender: ${data.general.gender}
+    - Country Name: ${data.general.countryName}
+    - Country Code: ${data.general.countryCode}
+
+
+
+Personal:
+
+    - Email: ${data.personal.email}
+    - Phone Number: ${data.personal.phoneNumber.replace(
+        /(\+\d{2})(\d{3})(\d{3})(\d{4})/,
+        "($1) $2 $3 $4"
+    )}
+    - Birthdate: ${birthdate.innerHTML}
+
+
+
+Job:
+
+    - Title: ${data.job.title}
+    - Programming Language: ${data.job.progLang}
+    - Experience: ${data.job.experience}
+
+
+
+Billing:
+
+    - Payment Method: ${data.billing.paymentMethod}
+    - Plan: ${data.billing.plan}
+    - Subscription: ${data.billing.subscription}
+
+
+
+Skills:
+
+    ${data.skills.map((group) => `- ${group.join(", ")}`).join("\n    ")}
+
+
+
+Social:
+
+    - Facebook: ${data.social.facebook}
+    - Twitter: ${data.social.twitter}
+    - Linkedin: ${data.social.linkedin}
+    - Github: ${data.social.github}
+`;
+
+            // Create a Blob with the formatted data
+            const blob = new Blob([formattedData], { type: "text/plain" });
+
+            // Create a temporary URL for the Blob
+            const url = URL.createObjectURL(blob);
+
+            // Create a link element to trigger the download
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${data.general.fullName} - Profile Data.txt`;
+            a.click();
+
+            // Clean up by revoking the temporary URL
+            URL.revokeObjectURL(url);
+        });
+}).catch((error) => console.error("Fetch error:", error));
