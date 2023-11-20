@@ -1,3 +1,6 @@
+const nameJobBox = document.querySelector(".box.welcome .name-job");
+const projectsCountBox = document.querySelector(".box.welcome .projects-count");
+const moneyEarnedBox = document.querySelector(".box.welcome .money-earned");
 const welcomeBoxHeader = document.querySelector(".box.welcome .box-header");
 const draftTitle = document.querySelector(".draft form input");
 const draftTxt = document.querySelector(".draft form textarea");
@@ -32,25 +35,27 @@ const socialMediaLinks = {
 let countStarted = false;
 let progressStarted = false;
 
-fetch("../json/profile.json")
-    .then((response) => response.json())
-    .then((data) => {
-        let userName = document.createElement("p");
-        // userName.innerHTML = data.general.fullName.slice(0, data.general.fullName.indexOf(" "));
-        userName.innerHTML = data.avatar.nickName;
-        welcomeBoxHeader.appendChild(userName);
-
-        for (const key in socialMediaLinks) {
-            document.querySelector(`.social-media-account.${key} a`).href = `${socialMediaLinks[key]}${data.social[key] || data.personal.email}`;
-        }
-    }).catch((error) => console.error("Fetch error:", error));
-
 window.addEventListener("load", () => {
     if (localStorage.draft) {
         let stringifiedDraft = localStorage.getItem("draft");
         let draftObject = JSON.parse(stringifiedDraft);
         draftTitle.value = draftObject.title;
         draftTxt.value = draftObject.text;
+    }
+});
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY >= progress.offsetTop - 300) {
+        if (!progressStarted) {
+            progressSpans.forEach((prog) => (prog.style.width = prog.dataset.width));
+    }
+        progressStarted = true;
+    }
+
+    if (window.scrollY >= counters.offsetTop - 300) {
+        if (!countStarted)
+            counterElements.forEach((num) => startCount(num));
+        countStarted = true;
     }
 });
 
@@ -74,28 +79,12 @@ draftBtn.addEventListener("click", () => {
     }
 });
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY >= progress.offsetTop - 300) {
-        if (!progressStarted) {
-            progressSpans.forEach((prog) => (prog.style.width = prog.dataset.width));
-	}
-        progressStarted = true;
-    }
-});
-
 function startCount(ele) {
     let count = setInterval(() => {
         ele.textContent++;
         if (ele.textContent == ele.dataset.goal) clearInterval(count);
     }, 1500 / ele.dataset.goal);
 }
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY >= counters.offsetTop - 300) {
-        if (!countStarted) counterElements.forEach((num) => startCount(num));
-        countStarted = true;
-    }
-});
 
 function taskIcons() {
     tasks.map((task) => {
@@ -107,6 +96,17 @@ function taskIcons() {
             task.children[2].style.display = "inline-block";
         }
     });
+}
+
+function projectStatus(progress) {
+    if (progress == -1) {
+        return "rejected";
+    } else if (progress == 0) {
+        return "pending";
+    } else if (progress == 100) {
+        return "completed";
+    }
+    return "in progress";
 }
 
 function updateDoneTasksNumber() {
@@ -155,6 +155,56 @@ deleteTaskBtns.map((deleteBtn) => {
         });
     });
 });
+
+fetch("../json/profile.json")
+    .then((response) => response.json())
+    .then((data) => {
+        let userName = document.createElement("p");
+        // userName.innerHTML = data.general.fullName.slice(0, data.general.fullName.indexOf(" "));
+        userName.innerHTML = data.avatar.nickName;
+        welcomeBoxHeader.appendChild(userName);
+
+        nameJobBox.appendChild(
+            document.createTextNode(
+                data.general.fullName.slice(
+                    0,
+                    data.general.fullName.indexOf(" ")
+                )
+            )
+        );
+
+        moneyEarnedBox.appendChild(
+            document.createTextNode(`$${data.job.moneyEarned}`)
+        );
+        let moneySpan = document.createElement("span");
+        moneySpan.innerHTML = "Earned";
+        moneyEarnedBox.appendChild(moneySpan);
+
+        for (const key in socialMediaLinks) {
+            document.querySelector(`.social-media-account.${key} a`).href = `${
+                socialMediaLinks[key]
+            }${data.social[key] || data.personal.email}`;
+        }
+
+        fetch(`https://api.github.com/users/${data.social.github}`)
+            .then((response) => response.json())
+            .then((user) => {
+                githubFollowersSpan.innerHTML = `${user.followers} Followers`;
+
+                let nameJobSpan = document.createElement("span");
+                nameJobSpan.innerHTML = data.job.title;
+                nameJobBox.appendChild(nameJobSpan);
+
+                projectsCountBox.appendChild(
+                    document.createTextNode(user.public_repos)
+                );
+                let projectsSpan = document.createElement("span");
+                projectsSpan.innerHTML = "Projects";
+                projectsCountBox.appendChild(projectsSpan);
+            })
+            .catch((error) => console.error("GitHub API fetch error:", error));
+    })
+    .catch((error) => console.error("Fetch error:", error));
 
 fetch("../json/posts.json")
     .then((response) => response.json())
@@ -205,22 +255,6 @@ fetch("../json/posts.json")
 
         postsBullets[0].click();
     }).catch((error) => console.error("Fetch error:", error));
-
-fetch("https://api.github.com/users/PhilopaterHany")
-    .then((response) => response.json())
-    .then((user) => (githubFollowersSpan.innerHTML = `${user.followers} Followers`))
-    .catch((error) => console.error("Fetch error:", error));
-
-function projectStatus(progress) {
-    if (progress == -1) {
-        return "rejected";
-    } else if (progress == 0) {
-        return "pending";
-    } else if (progress == 100) {
-        return "completed";
-    }
-    return "in progress";
-}
 
 fetch("../json/projects.json")
     .then((response) => response.json())

@@ -65,8 +65,10 @@
             color: $white-color;
             background-color: $blue-alt-color;
             cursor: pointer;
+            @include bRad(5px);
             i {
                 margin-inline-start: 5px;
+                font-size: 13px;
             }
             &:hover {
                 i {
