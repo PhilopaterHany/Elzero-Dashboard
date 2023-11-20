@@ -164,6 +164,7 @@ Note: Those were the original design images, but I made a few changes and added 
     "job": {
         "title": "Front-End Developer",
         "progLang": "JavaScript",
+        "moneyEarned": "8723",
         "experience": "+15"
     },
     "billing": {
